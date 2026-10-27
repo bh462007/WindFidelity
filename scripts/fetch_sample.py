@@ -47,58 +47,62 @@ def main():
         else:
             print("WARNING: No records returned.")
 
-    # Fetch forecast publication history for inspection
+    # Fetch forecast evolution for each delivery hour
+    from datetime import datetime, timedelta
+
     history_url = f"{BASE_URL}/forecast/generation/wind/evolution"
-    history_params = {
-        "startTime": "2026-10-26T12:00:00Z",
-        "format": "json",
-    }
 
-    print("Fetching wind forecast history...")
-    response = requests.get(
-        history_url,
-        params=history_params,
-        timeout=30,
-    )
-    response.raise_for_status()
+    start_dt = datetime.fromisoformat(START.replace("Z", "+00:00"))
+    end_dt = datetime.fromisoformat(END.replace("Z", "+00:00"))
 
-    history = response.json()
-    if isinstance(history, dict):
-        history = history.get("data", [])
+    history = []
+    delivery = start_dt
+
+    while delivery < end_dt:
+        params = {
+            "startTime": delivery.strftime("%Y-%m-%dT%H:%M:%SZ"),
+            "format": "json",
+        }
+        response = requests.get(history_url, params=params, timeout=30)
+        response.raise_for_status()
+
+        records = response.json()
+        if isinstance(records, dict):
+            records = records.get("data", [])
+
+        history.extend(records)
+        delivery += timedelta(hours=1)
 
     history_path = FIXTURES / "windfor_history_sample.json"
-    history_path.write_text(
-        json.dumps(history, indent=2),
-        encoding="utf-8",
-    )
-    print(f"Saved {len(history)} history records to {history_path}")
+    history_path.write_text(json.dumps(history, indent=2), encoding="utf-8")
 
-    from datetime import datetime
-
-    def parse_utc(value):
-        return datetime.fromisoformat(value.replace("Z", "+00:00"))
-
-    lead_times = []
+    # Select the latest vintage published at least 120 minutes before delivery
+    by_delivery = {}
     for row in history:
         published = row.get("publishTime")
-        delivery = row.get("startTime")
-        if not published or not delivery:
+        target = row.get("startTime")
+        if not published or not target:
             continue
 
-        minutes = (
-            parse_utc(delivery) - parse_utc(published)
-        ).total_seconds() / 60
-        lead_times.append((published, delivery, minutes))
+        published_dt = datetime.fromisoformat(published.replace("Z", "+00:00"))
+        target_dt = datetime.fromisoformat(target.replace("Z", "+00:00"))
 
-    lead_times.sort(key=lambda item: item[0])
+        if (target_dt - published_dt).total_seconds() >= 120 * 60:
+            by_delivery.setdefault(target, []).append(row)
 
-    print(f"\nRecords with timestamps: {len(lead_times)}")
-    print("\nPublication time | Delivery time | Lead time (hours)")
-    for published, delivery, minutes in lead_times:
-        print(f"{published} | {delivery} | {minutes / 60:.1f}")
+    print(f"\nHistory records saved: {len(history)}")
+    print(f"Delivery hours with an eligible vintage: {len(by_delivery)}")
+    print("\nDelivery time | Selected publication time | Lead hours")
 
-    eligible = sum(minutes >= 120 for _, _, minutes in lead_times)
-    print(f"\nRecords published at least 120 minutes ahead: {eligible}")
+    for target in sorted(by_delivery):
+        selected = max(by_delivery[target], key=lambda row: row["publishTime"])
+        lead_hours = (
+            datetime.fromisoformat(target.replace("Z", "+00:00"))
+            - datetime.fromisoformat(
+                selected["publishTime"].replace("Z", "+00:00")
+            )
+        ).total_seconds() / 3600
+        print(f"{target} | {selected['publishTime']} | {lead_hours:.1f}")
 
     print("\nSample fetching complete.")
 

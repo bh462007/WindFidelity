@@ -1,6 +1,2022 @@
 [
   {
     "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 20994
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 20990
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 20967
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21036
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 20997
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 20973
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 20995
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21157
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21203
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21198
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21248
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21246
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21271
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21154
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21132
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 20852
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21020
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21020
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21020
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21020
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21020
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21020
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21020
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T00:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 1,
+    "generation": 21020
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20458
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20459
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20405
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20509
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20509
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20506
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20498
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20732
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20792
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20772
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20815
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20829
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20859
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20829
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20816
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20503
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20680
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20680
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20680
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20680
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20680
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20680
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20680
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T01:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 3,
+    "generation": 20680
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19626
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19617
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19467
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19573
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19648
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19654
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19663
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19929
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 20032
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19997
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 20045
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 20075
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 20074
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 20100
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 20122
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19515
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19526
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19526
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19526
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19526
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19526
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19526
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19526
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T02:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 5,
+    "generation": 19526
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18392
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18413
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18217
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18348
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18470
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18474
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18467
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18663
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18768
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18756
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18779
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18763
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18757
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18732
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18833
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 18187
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 17901
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 17900
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 17900
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 17900
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 17900
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 17900
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 17900
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T03:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 7,
+    "generation": 17900
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16743
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16767
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16548
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16695
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16812
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16815
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16784
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16909
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 17069
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 17067
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 17029
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16946
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16882
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16787
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16878
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16475
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16179
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16116
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16116
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16116
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16116
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16116
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16116
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T04:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 9,
+    "generation": 16116
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14954
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14974
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14682
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14766
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14916
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 15007
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14993
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 15102
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 15321
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 15319
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 15243
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 15153
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 15001
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14946
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 15034
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14925
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14803
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14502
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14627
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14627
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14627
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14627
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14627
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T05:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 11,
+    "generation": 14627
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13438
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13426
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13140
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13192
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13322
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13416
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13315
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13517
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13802
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13793
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13718
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13672
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13634
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13583
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13606
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13623
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13561
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13295
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13336
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13336
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13336
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13336
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13336
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T06:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 13,
+    "generation": 13336
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12494
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12448
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12193
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12140
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12212
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12217
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12126
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12632
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12932
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12938
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12922
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12935
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13109
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13059
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12937
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12988
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13027
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 12930
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13003
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13003
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13003
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13003
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13003
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T07:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 15,
+    "generation": 13003
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 12164
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 12126
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 11915
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 11719
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 11740
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 11666
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 11539
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 12456
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 12861
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 12908
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 12934
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13006
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13232
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13137
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 12875
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 12824
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13066
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13336
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13596
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13446
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13446
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13446
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13446
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T08:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 17,
+    "generation": 13446
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 12403
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 12344
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 12128
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 11700
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 11684
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 11661
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 11575
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 12846
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13402
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13520
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13617
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13670
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13932
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13785
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13411
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13231
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 13580
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 14036
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 14506
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 14239
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 14239
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 14239
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 14239
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T09:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 19,
+    "generation": 14239
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 12986
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 12954
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 12747
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 12109
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 12128
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 12198
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 12240
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 13685
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 14354
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 14543
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 14677
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 14740
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15255
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15106
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 14663
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 14423
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 14681
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15125
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15782
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15635
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15967
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15967
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15967
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T10:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 21,
+    "generation": 15967
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 13977
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 13959
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 13785
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 13009
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 13064
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 13122
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 13163
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 14773
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 15586
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 15807
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 15935
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 16046
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 16775
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 16690
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 16195
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 16133
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 16292
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 16579
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 17203
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 17415
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 17478
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 17478
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 17478
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T11:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 23,
+    "generation": 17478
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
     "startTime": "2026-10-26T12:00:00Z",
     "settlementDate": "2026-10-26",
     "settlementPeriod": 25,
@@ -166,5 +2182,1867 @@
     "settlementDate": "2026-10-26",
     "settlementPeriod": 25,
     "generation": 18702
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 16436
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 16499
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 16382
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 15643
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 15702
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 15741
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 15926
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 17568
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 18295
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 18426
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 18606
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 18845
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19764
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19591
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19090
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19297
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19250
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19289
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19720
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 20002
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 20184
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19911
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19911
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T13:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 27,
+    "generation": 19911
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 17660
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 17774
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 17680
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 17152
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 17197
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 17212
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 17516
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 18981
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 19537
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 19647
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 19803
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20003
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20846
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20709
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20305
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20426
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20374
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20330
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20589
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20842
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 21123
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20615
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20615
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T14:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 29,
+    "generation": 20615
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 18777
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 18928
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 18908
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 18656
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 18649
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 18645
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 18947
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 20099
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 20452
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 20507
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 20599
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 20762
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21441
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21280
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21030
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21075
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21050
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 20976
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21067
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21250
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21556
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21084
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21084
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T15:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 31,
+    "generation": 21084
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 19683
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 19812
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 19834
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 19815
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 19792
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 19797
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 19981
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 20781
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21018
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21025
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21096
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21235
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21688
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21495
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21283
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21307
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21290
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21205
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21228
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21365
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21619
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21081
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21022
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T16:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 33,
+    "generation": 21022
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 20401
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 20483
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 20498
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 20548
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 20515
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 20585
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 20743
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21232
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21372
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21380
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21478
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21563
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21826
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21640
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21463
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21468
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21454
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21375
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21395
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21462
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21669
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21191
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21195
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T17:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 35,
+    "generation": 21195
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 20940
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 20992
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21030
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21052
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21030
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21077
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21223
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21553
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21598
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21614
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21694
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21731
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21934
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21802
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21689
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21684
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21670
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21604
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21639
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21668
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21845
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21653
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21650
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T18:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 37,
+    "generation": 21650
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21284
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21348
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21410
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21397
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21372
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21420
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21507
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21799
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21807
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21817
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21858
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21884
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 22053
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21956
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21887
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21820
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21788
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21735
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21793
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21821
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21967
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21899
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 21983
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T19:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 39,
+    "generation": 22012
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21538
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21605
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21663
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21615
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21563
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21625
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21710
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21957
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21952
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21968
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21994
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21989
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 22129
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 22066
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 22010
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21884
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21848
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21788
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21856
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21883
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 22063
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 21921
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 22009
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T20:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 41,
+    "generation": 22227
+  },
+  {
+    "publishTime": "2026-10-24T03:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21703
+  },
+  {
+    "publishTime": "2026-10-24T05:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21794
+  },
+  {
+    "publishTime": "2026-10-24T08:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21842
+  },
+  {
+    "publishTime": "2026-10-24T10:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21817
+  },
+  {
+    "publishTime": "2026-10-24T12:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21748
+  },
+  {
+    "publishTime": "2026-10-24T16:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21781
+  },
+  {
+    "publishTime": "2026-10-24T19:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21846
+  },
+  {
+    "publishTime": "2026-10-24T23:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22044
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22024
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22043
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22091
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22062
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22169
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22126
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22116
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21968
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21951
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21879
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21941
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 21973
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22213
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22106
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22175
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22274
+  },
+  {
+    "publishTime": "2026-10-27T02:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22274
+  },
+  {
+    "publishTime": "2026-10-27T04:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22274
+  },
+  {
+    "publishTime": "2026-10-27T07:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22274
+  },
+  {
+    "publishTime": "2026-10-27T09:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22274
+  },
+  {
+    "publishTime": "2026-10-27T11:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22274
+  },
+  {
+    "publishTime": "2026-10-27T15:30:00Z",
+    "startTime": "2026-10-26T21:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 43,
+    "generation": 22274
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22082
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22078
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22147
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22092
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22192
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22184
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22215
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22113
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22115
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22044
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22090
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22100
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22267
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22155
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22225
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22344
+  },
+  {
+    "publishTime": "2026-10-27T02:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22344
+  },
+  {
+    "publishTime": "2026-10-27T04:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22344
+  },
+  {
+    "publishTime": "2026-10-27T07:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22344
+  },
+  {
+    "publishTime": "2026-10-27T09:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22344
+  },
+  {
+    "publishTime": "2026-10-27T11:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22344
+  },
+  {
+    "publishTime": "2026-10-27T15:30:00Z",
+    "startTime": "2026-10-26T22:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 45,
+    "generation": 22344
+  },
+  {
+    "publishTime": "2026-10-25T02:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22089
+  },
+  {
+    "publishTime": "2026-10-25T04:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22084
+  },
+  {
+    "publishTime": "2026-10-25T07:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22198
+  },
+  {
+    "publishTime": "2026-10-25T09:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22073
+  },
+  {
+    "publishTime": "2026-10-25T11:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22175
+  },
+  {
+    "publishTime": "2026-10-25T15:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22211
+  },
+  {
+    "publishTime": "2026-10-25T18:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22270
+  },
+  {
+    "publishTime": "2026-10-25T22:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22210
+  },
+  {
+    "publishTime": "2026-10-26T02:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22210
+  },
+  {
+    "publishTime": "2026-10-26T04:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22147
+  },
+  {
+    "publishTime": "2026-10-26T07:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22164
+  },
+  {
+    "publishTime": "2026-10-26T09:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22138
+  },
+  {
+    "publishTime": "2026-10-26T11:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22222
+  },
+  {
+    "publishTime": "2026-10-26T15:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22118
+  },
+  {
+    "publishTime": "2026-10-26T18:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22124
+  },
+  {
+    "publishTime": "2026-10-26T22:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22248
+  },
+  {
+    "publishTime": "2026-10-27T02:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22167
+  },
+  {
+    "publishTime": "2026-10-27T04:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22167
+  },
+  {
+    "publishTime": "2026-10-27T07:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22167
+  },
+  {
+    "publishTime": "2026-10-27T09:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22167
+  },
+  {
+    "publishTime": "2026-10-27T11:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22167
+  },
+  {
+    "publishTime": "2026-10-27T15:30:00Z",
+    "startTime": "2026-10-26T23:00:00Z",
+    "settlementDate": "2026-10-26",
+    "settlementPeriod": 47,
+    "generation": 22167
   }
 ]
