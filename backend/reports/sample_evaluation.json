@@ -1,0 +1,157 @@
+{
+  "period_start": "2026-10-26T00:00:00Z",
+  "period_end": "2026-10-26T23:00:00Z",
+  "minimum_lead_minutes": 120,
+  "metrics": {
+    "sample_count": 24,
+    "mae_mw": 2646.2708333333335,
+    "rmse_mw": 3030.114194424032,
+    "bias_mw": 2421.2291666666665
+  },
+  "matched_records": [
+    {
+      "startTime": "2026-10-26T00:00:00Z",
+      "publishTime": "2026-10-25T18:30:00Z",
+      "forecast_mw": 21132.0,
+      "actual_mw": 16602.5
+    },
+    {
+      "startTime": "2026-10-26T01:00:00Z",
+      "publishTime": "2026-10-25T22:30:00Z",
+      "forecast_mw": 20503.0,
+      "actual_mw": 15619.5
+    },
+    {
+      "startTime": "2026-10-26T02:00:00Z",
+      "publishTime": "2026-10-25T22:30:00Z",
+      "forecast_mw": 19515.0,
+      "actual_mw": 15074.0
+    },
+    {
+      "startTime": "2026-10-26T03:00:00Z",
+      "publishTime": "2026-10-25T22:30:00Z",
+      "forecast_mw": 18187.0,
+      "actual_mw": 13638.5
+    },
+    {
+      "startTime": "2026-10-26T04:00:00Z",
+      "publishTime": "2026-10-25T22:30:00Z",
+      "forecast_mw": 16475.0,
+      "actual_mw": 12733.5
+    },
+    {
+      "startTime": "2026-10-26T05:00:00Z",
+      "publishTime": "2026-10-26T02:30:00Z",
+      "forecast_mw": 14803.0,
+      "actual_mw": 12651.5
+    },
+    {
+      "startTime": "2026-10-26T06:00:00Z",
+      "publishTime": "2026-10-26T02:30:00Z",
+      "forecast_mw": 13561.0,
+      "actual_mw": 11586.0
+    },
+    {
+      "startTime": "2026-10-26T07:00:00Z",
+      "publishTime": "2026-10-26T04:30:00Z",
+      "forecast_mw": 12930.0,
+      "actual_mw": 11731.0
+    },
+    {
+      "startTime": "2026-10-26T08:00:00Z",
+      "publishTime": "2026-10-26T04:30:00Z",
+      "forecast_mw": 13336.0,
+      "actual_mw": 12734.0
+    },
+    {
+      "startTime": "2026-10-26T09:00:00Z",
+      "publishTime": "2026-10-26T04:30:00Z",
+      "forecast_mw": 14036.0,
+      "actual_mw": 14548.0
+    },
+    {
+      "startTime": "2026-10-26T10:00:00Z",
+      "publishTime": "2026-10-26T07:30:00Z",
+      "forecast_mw": 15782.0,
+      "actual_mw": 16377.0
+    },
+    {
+      "startTime": "2026-10-26T11:00:00Z",
+      "publishTime": "2026-10-26T07:30:00Z",
+      "forecast_mw": 17203.0,
+      "actual_mw": 18124.5
+    },
+    {
+      "startTime": "2026-10-26T12:00:00Z",
+      "publishTime": "2026-10-26T09:30:00Z",
+      "forecast_mw": 18854.0,
+      "actual_mw": 19526.0
+    },
+    {
+      "startTime": "2026-10-26T13:00:00Z",
+      "publishTime": "2026-10-26T09:30:00Z",
+      "forecast_mw": 20002.0,
+      "actual_mw": 19743.0
+    },
+    {
+      "startTime": "2026-10-26T14:00:00Z",
+      "publishTime": "2026-10-26T11:30:00Z",
+      "forecast_mw": 21123.0,
+      "actual_mw": 19298.0
+    },
+    {
+      "startTime": "2026-10-26T15:00:00Z",
+      "publishTime": "2026-10-26T11:30:00Z",
+      "forecast_mw": 21556.0,
+      "actual_mw": 18674.0
+    },
+    {
+      "startTime": "2026-10-26T16:00:00Z",
+      "publishTime": "2026-10-26T11:30:00Z",
+      "forecast_mw": 21619.0,
+      "actual_mw": 18553.5
+    },
+    {
+      "startTime": "2026-10-26T17:00:00Z",
+      "publishTime": "2026-10-26T11:30:00Z",
+      "forecast_mw": 21669.0,
+      "actual_mw": 18724.0
+    },
+    {
+      "startTime": "2026-10-26T18:00:00Z",
+      "publishTime": "2026-10-26T15:30:00Z",
+      "forecast_mw": 21653.0,
+      "actual_mw": 18599.0
+    },
+    {
+      "startTime": "2026-10-26T19:00:00Z",
+      "publishTime": "2026-10-26T15:30:00Z",
+      "forecast_mw": 21899.0,
+      "actual_mw": 18386.5
+    },
+    {
+      "startTime": "2026-10-26T20:00:00Z",
+      "publishTime": "2026-10-26T15:30:00Z",
+      "forecast_mw": 21921.0,
+      "actual_mw": 18229.5
+    },
+    {
+      "startTime": "2026-10-26T21:00:00Z",
+      "publishTime": "2026-10-26T18:30:00Z",
+      "forecast_mw": 22175.0,
+      "actual_mw": 18043.5
+    },
+    {
+      "startTime": "2026-10-26T22:00:00Z",
+      "publishTime": "2026-10-26T18:30:00Z",
+      "forecast_mw": 22225.0,
+      "actual_mw": 18427.5
+    },
+    {
+      "startTime": "2026-10-26T23:00:00Z",
+      "publishTime": "2026-10-26T18:30:00Z",
+      "forecast_mw": 22124.0,
+      "actual_mw": 18549.0
+    }
+  ]
+}
