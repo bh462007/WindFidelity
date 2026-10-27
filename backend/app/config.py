@@ -1,6 +1,7 @@
 
+from datetime import time
 import os
 
-FORECAST_MIN_LEAD_MINUTES = int(
-    os.getenv("FORECAST_MIN_LEAD_MINUTES", "120")
+FORECAST_CUTOFF_UTC = time.fromisoformat(
+    os.getenv("FORECAST_CUTOFF_UTC", "12:00")
 )

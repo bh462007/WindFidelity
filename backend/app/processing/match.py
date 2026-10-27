@@ -1,7 +1,7 @@
 
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, time, timedelta, timezone
 
-from app.config import FORECAST_MIN_LEAD_MINUTES
+from app.config import FORECAST_CUTOFF_UTC
 
 
 def parse_timestamp(value: str) -> datetime:
@@ -13,14 +13,18 @@ def parse_timestamp(value: str) -> datetime:
     return parsed.astimezone(timezone.utc)
 
 
-def select_forecast_vintages(
-    forecasts: list[dict],
-    min_lead_minutes: int = FORECAST_MIN_LEAD_MINUTES,
-) -> list[dict]:
-    """Select the latest eligible forecast for each delivery time."""
+def get_forecast_cutoff(delivery: datetime) -> datetime:
+    previous_day = delivery.date() - timedelta(days=1)
 
-    if min_lead_minutes < 0:
-        raise ValueError("Minimum lead time cannot be negative")
+    return datetime.combine(
+        previous_day,
+        FORECAST_CUTOFF_UTC,
+        tzinfo=timezone.utc,
+    )
+
+
+def select_forecast_vintages(forecasts: list[dict]) -> list[dict]:
+    """Select the latest forecast published by noon UTC the previous day."""
 
     latest_by_delivery = {}
 
@@ -33,8 +37,9 @@ def select_forecast_vintages(
 
         published = parse_timestamp(published_value)
         delivery = parse_timestamp(delivery_value)
+        cutoff = get_forecast_cutoff(delivery)
 
-        if published > delivery - timedelta(minutes=min_lead_minutes):
+        if published > cutoff:
             continue
 
         key = delivery.isoformat()
@@ -49,7 +54,6 @@ def select_forecast_vintages(
         latest_by_delivery[key]
         for key in sorted(latest_by_delivery)
     ]
-
 
 
 def match_forecasts_to_actuals(
