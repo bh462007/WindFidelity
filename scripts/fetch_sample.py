@@ -73,14 +73,32 @@ def main():
     )
     print(f"Saved {len(history)} history records to {history_path}")
 
-    publish_times = sorted({
-        row["publishTime"]
-        for row in history
-        if row.get("publishTime")
-    })
-    print(f"Distinct publication times: {len(publish_times)}")
-    for timestamp in publish_times[:15]:
-        print(timestamp)
+    from datetime import datetime
+
+    def parse_utc(value):
+        return datetime.fromisoformat(value.replace("Z", "+00:00"))
+
+    lead_times = []
+    for row in history:
+        published = row.get("publishTime")
+        delivery = row.get("startTime")
+        if not published or not delivery:
+            continue
+
+        minutes = (
+            parse_utc(delivery) - parse_utc(published)
+        ).total_seconds() / 60
+        lead_times.append((published, delivery, minutes))
+
+    lead_times.sort(key=lambda item: item[0])
+
+    print(f"\nRecords with timestamps: {len(lead_times)}")
+    print("\nPublication time | Delivery time | Lead time (hours)")
+    for published, delivery, minutes in lead_times:
+        print(f"{published} | {delivery} | {minutes / 60:.1f}")
+
+    eligible = sum(minutes >= 120 for _, _, minutes in lead_times)
+    print(f"\nRecords published at least 120 minutes ahead: {eligible}")
 
     print("\nSample fetching complete.")
 
