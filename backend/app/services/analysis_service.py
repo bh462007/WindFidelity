@@ -2,6 +2,7 @@
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 
+from app.config import FORECAST_CUTOFF_UTC
 from app.ingestion.elexon_client import ElexonClient
 from app.processing.clean import aggregate_hourly_actuals
 from app.processing.match import match_forecasts_to_actuals
@@ -57,10 +58,18 @@ def analyse_day(day: date) -> dict:
             f"No eligible forecast/actual matches for {day.isoformat()}"
         )
 
+    cutoff_utc = FORECAST_CUTOFF_UTC.isoformat()
+
     return {
         "date": day.isoformat(),
         "timezone": "UTC",
-        "minimum_lead_minutes": 120,
+        "forecast_cutoff": {
+            "cutoff_utc": cutoff_utc,
+            "policy": (
+                "latest forecast published at or before "
+                f"{cutoff_utc} UTC on the previous calendar day"
+            ),
+        },
         "metrics": calculate_metrics(matched),
         "matched_records": matched,
     }

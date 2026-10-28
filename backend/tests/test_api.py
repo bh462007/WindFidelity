@@ -18,7 +18,13 @@ def test_metrics_endpoint(monkeypatch):
     expected_result = {
         "date": "2026-10-26",
         "timezone": "UTC",
-        "minimum_lead_minutes": 120,
+        "forecast_cutoff": {
+            "cutoff_utc": "12:00:00",
+            "policy": (
+                "latest forecast published at or before 12:00:00 UTC "
+                "on the previous calendar day"
+            ),
+        },
         "metrics": {
             "sample_count": 24,
             "mae_mw": 2646.27,
