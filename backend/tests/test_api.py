@@ -1,8 +1,12 @@
 
+from datetime import date
+
+import requests
 from fastapi.testclient import TestClient
 
-from app.main import app
 from app.api import routes_metrics
+from app.main import app
+from app.services import analysis_service
 
 client = TestClient(app)
 
@@ -47,6 +51,97 @@ def test_metrics_endpoint(monkeypatch):
 
     assert response.status_code == 200
     assert response.json() == expected_result
+
+
+def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch):
+    captured = []
+
+    def fake_fetch_json(endpoint, params):
+        captured.append((endpoint, params))
+
+        if endpoint == "/generation/actual/per-type/wind-and-solar":
+            return [{
+                "startTime": "2026-10-26T00:00:00Z",
+                "actual_mw": 100.0,
+            }]
+
+        if endpoint == "/forecast/generation/wind/evolution":
+            return [{
+                "startTime": params["startTime"],
+                "publishTime": "2026-10-25T10:00:00Z",
+                "generation": 90.0,
+            }]
+
+        raise AssertionError(f"Unexpected endpoint: {endpoint}")
+
+    monkeypatch.setattr(analysis_service.client, "fetch_json", fake_fetch_json)
+    monkeypatch.setattr(
+        analysis_service,
+        "aggregate_hourly_actuals",
+        lambda rows: [{"startTime": row["startTime"], "actual_mw": row["actual_mw"]} for row in rows],
+    )
+    monkeypatch.setattr(
+        analysis_service,
+        "match_forecasts_to_actuals",
+        lambda forecasts, actuals: [{
+            "startTime": forecasts[0]["startTime"],
+            "publishTime": forecasts[0]["publishTime"],
+            "forecast_mw": float(forecasts[0]["generation"]),
+            "actual_mw": actuals[0]["actual_mw"],
+        }],
+    )
+    monkeypatch.setattr(
+        analysis_service,
+        "calculate_metrics",
+        lambda matched: {
+            "sample_count": len(matched),
+            "mae_mw": 0.0,
+            "rmse_mw": 0.0,
+            "bias_mw": 0.0,
+        },
+    )
+
+    result = analysis_service.analyse_day(date(2026, 10, 26))
+
+    assert captured[0] == (
+        "/generation/actual/per-type/wind-and-solar",
+        {
+            "from": "2026-10-26T00:00:00Z",
+            "to": "2026-10-27T00:00:00Z",
+            "format": "json",
+        },
+    )
+
+    forecast_calls = [
+        params for endpoint, params in captured if endpoint == "/forecast/generation/wind/evolution"
+    ]
+    assert len(forecast_calls) == 24
+    assert all(call["format"] == "json" for call in forecast_calls)
+    assert all("startTime" in call for call in forecast_calls)
+
+    expected_hours = [
+        f"2026-10-26T{hour:02d}:00:00Z"
+        for hour in range(24)
+    ]
+    actual_hours = [call["startTime"] for call in forecast_calls]
+    assert actual_hours == expected_hours
+    assert len(set(actual_hours)) == 24
+    assert result["date"] == "2026-10-26"
+
+
+def test_metrics_route_propagates_elexon_http_error(monkeypatch):
+    def fake_fetch_json(endpoint, params):
+        raise requests.HTTPError("502 Bad Gateway")
+
+    monkeypatch.setattr(analysis_service.client, "fetch_json", fake_fetch_json)
+
+    response = client.get(
+        "/api/v1/metrics",
+        params={"day": "2026-10-26"},
+    )
+
+    assert response.status_code == 502
+    assert response.json() == {"detail": "Could not retrieve data from Elexon"}
 
 
 def test_metrics_rejects_invalid_date():
