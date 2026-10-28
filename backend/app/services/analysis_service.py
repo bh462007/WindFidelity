@@ -2,38 +2,20 @@
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 
-import requests
-
+from app.ingestion.elexon_client import ElexonClient
 from app.processing.clean import aggregate_hourly_actuals
 from app.processing.match import match_forecasts_to_actuals
 from app.processing.metrics import calculate_metrics
 
-BASE_URL = "https://data.elexon.co.uk/bmrs/api/v1"
 
-
-def fetch_json(endpoint: str, params: dict) -> list[dict]:
-    response = requests.get(
-        f"{BASE_URL}{endpoint}",
-        params=params,
-        timeout=30,
-    )
-    response.raise_for_status()
-    data = response.json()
-
-    if isinstance(data, dict):
-        data = data.get("data", [])
-
-    if not isinstance(data, list):
-        raise ValueError("Unexpected response format from Elexon")
-
-    return data
+client = ElexonClient()
 
 
 def analyse_day(day: date) -> dict:
     start = datetime.combine(day, datetime.min.time(), tzinfo=timezone.utc)
     end = start + timedelta(days=1)
 
-    actuals_raw = fetch_json(
+    actuals_raw = client.fetch_json(
         "/generation/actual/per-type/wind-and-solar",
         {
             "from": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -48,7 +30,7 @@ def analyse_day(day: date) -> dict:
     ]
 
     def fetch_evolution(delivery):
-        return fetch_json(
+        return client.fetch_json(
             "/forecast/generation/wind/evolution",
             {
                 "startTime": delivery.strftime("%Y-%m-%dT%H:%M:%SZ"),
