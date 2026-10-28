@@ -10,7 +10,7 @@ class ElexonClient:
     def __init__(
         self,
         base_url: str = BASE_URL,
-        timeout: int = 30,
+        timeout: int = 10,
         session: Session | None = None,
     ):
         self.base_url = base_url.rstrip("/")
@@ -19,7 +19,7 @@ class ElexonClient:
 
         retry = Retry(
             total=3,
-            backoff_factor=0.5,
+            backoff_factor=1,
             status_forcelist=(429, 500, 502, 503, 504),
             allowed_methods=frozenset({"GET"}),
             respect_retry_after_header=True,
@@ -52,3 +52,22 @@ class ElexonClient:
             raise ValueError("Unexpected response format from Elexon")
 
         return data
+
+    def fetch_fuelhh(self, settlement_date: str) -> list[dict]:
+        return self.fetch_json(
+            "/datasets/FUELHH",
+            {
+                "settlementDateFrom": settlement_date,
+                "settlementDateTo": settlement_date,
+                "format": "json",
+            },
+        )
+
+    def fetch_windfor(self, start_time: str) -> list[dict]:
+        return self.fetch_json(
+            "/forecast/generation/wind/evolution",
+            {
+                "startTime": start_time,
+                "format": "json",
+            },
+        )
