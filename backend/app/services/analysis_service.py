@@ -4,6 +4,10 @@ from datetime import date, datetime, timedelta, timezone
 
 from app.config import FORECAST_CUTOFF_UTC
 from app.ingestion.elexon_client import ElexonClient
+from app.ingestion.schemas import (
+    validate_actual_generation_records,
+    validate_windfor_records,
+)
 from app.processing.clean import aggregate_hourly_actuals
 from app.processing.match import match_forecasts_to_actuals
 from app.processing.metrics import calculate_metrics
@@ -24,6 +28,7 @@ def analyse_day(day: date) -> dict:
             "format": "json",
         },
     )
+    actuals_validated = validate_actual_generation_records(actuals_raw)
 
     delivery_times = [
         start + timedelta(hours=hour)
@@ -31,13 +36,15 @@ def analyse_day(day: date) -> dict:
     ]
 
     def fetch_evolution(delivery):
-        return client.fetch_json(
+        raw_group = client.fetch_json(
             "/forecast/generation/wind/evolution",
             {
                 "startTime": delivery.strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "format": "json",
             },
         )
+        validation = validate_windfor_records(raw_group)
+        return validation["valid_records"]
 
     with ThreadPoolExecutor(max_workers=6) as executor:
         history_groups = list(
@@ -50,7 +57,7 @@ def analyse_day(day: date) -> dict:
         for record in group
     ]
 
-    actuals = aggregate_hourly_actuals(actuals_raw)
+    actuals = aggregate_hourly_actuals(actuals_validated["valid_records"])
     matched = match_forecasts_to_actuals(forecasts, actuals)
 
     if not matched:

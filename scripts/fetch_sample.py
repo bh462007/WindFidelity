@@ -1,7 +1,7 @@
 
 import json
 from collections import defaultdict
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -15,21 +15,32 @@ FIXTURES = ROOT / "backend" / "tests" / "fixtures"
 
 
 def fetch(endpoint: str, params: dict) -> list[dict]:
+    raw = fetch_raw(endpoint, params)
+    data = raw.get("data", []) if isinstance(raw, dict) else raw
+
+    if not isinstance(data, list):
+        raise ValueError(f"Unexpected response format from {BASE_URL}{endpoint}")
+
+    print(f"URL: {BASE_URL}{endpoint}")
+    print(f"Records: {len(data)}")
+    if data:
+        print("First record:", data[0])
+
+    return data
+
+
+def fetch_raw(endpoint: str, params: dict) -> dict | list:
     url = f"{BASE_URL}{endpoint}"
     response = requests.get(url, params=params, timeout=30)
     response.raise_for_status()
 
     data = response.json()
-    if isinstance(data, dict):
-        data = data.get("data", [])
-
-    if not isinstance(data, list):
-        raise ValueError(f"Unexpected response format from {url}")
-
     print(f"URL: {response.url}")
-    print(f"Records: {len(data)}")
-    if data:
-        print("First record:", data[0])
+    if isinstance(data, dict):
+        print(f"Top-level keys: {sorted(data.keys())}")
+        print(f"Records: {len(data.get('data', []))}")
+    else:
+        print(f"Records: {len(data)}")
 
     return data
 
@@ -38,6 +49,23 @@ def save_json(filename: str, data: list[dict]) -> None:
     path = FIXTURES / filename
     path.write_text(json.dumps(data, indent=2), encoding="utf-8")
     print(f"Saved {len(data)} records to {path}")
+
+
+def save_raw_json(filename: str, data: dict | list) -> None:
+    path = FIXTURES / filename
+    path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    print(f"Saved raw response to {path}")
+
+
+def save_raw_metadata(filename: str, endpoint: str, params: dict, timestamp: datetime) -> None:
+    metadata = {
+        "endpoint": endpoint,
+        "request_params": params,
+        "captured_at_utc": timestamp.astimezone(timezone.utc).isoformat().replace("+00:00", "Z"),
+    }
+    path = FIXTURES / filename
+    path.write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+    print(f"Saved raw-response metadata to {path}")
 
 
 def main():
@@ -58,14 +86,20 @@ def main():
             "format": "json",
         },
     )
-    
+
     save_json("fuelhh_sample.json", fuelhh)
 
     print("\n--- Actual wind and solar data (comparison sample) ---")
-    actuals = fetch(
-        "/generation/actual/per-type/wind-and-solar",
+    endpoint = "/generation/actual/per-type/wind-and-solar"
+    actual_response = fetch_raw(
+        endpoint,
         date_params,
     )
+    captured_at = datetime.now(timezone.utc)
+    save_raw_json("actuals_raw_response.json", actual_response)
+    save_raw_metadata("actuals_raw_response_metadata.json", endpoint, date_params, captured_at)
+
+    actuals = actual_response.get("data", []) if isinstance(actual_response, dict) else actual_response
     save_json("actuals_sample.json", actuals)
 
     print("\n--- WINDFOR forecast evolution ---")

@@ -55,30 +55,56 @@ def test_metrics_endpoint(monkeypatch):
 
 def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch):
     captured = []
+    forecast_validations = []
+    actual_validations = []
+
+    valid_actual = [{
+        "businessType": "Wind generation",
+        "startTime": "2026-10-26T00:00:00Z",
+        "quantity": 100.0,
+    }]
+    invalid_actual = [{
+        "businessType": "Wind generation",
+        "startTime": "2026-10-26T00:30:00Z",
+        "quantity": "bad",
+    }]
 
     def fake_fetch_json(endpoint, params):
         captured.append((endpoint, params))
 
         if endpoint == "/generation/actual/per-type/wind-and-solar":
-            return [{
-                "startTime": "2026-10-26T00:00:00Z",
-                "actual_mw": 100.0,
-            }]
+            return valid_actual + invalid_actual
 
         if endpoint == "/forecast/generation/wind/evolution":
             return [{
-                "startTime": params["startTime"],
                 "publishTime": "2026-10-25T10:00:00Z",
+                "startTime": params["startTime"],
+                "settlementDate": "2026-10-26",
+                "settlementPeriod": 1,
                 "generation": 90.0,
             }]
 
         raise AssertionError(f"Unexpected endpoint: {endpoint}")
 
+    def fake_validate_actual_generation_records(records):
+        actual_validations.append(records)
+        return {
+            "valid_records": valid_actual,
+            "invalid_records": [{"record": invalid_actual[0], "reason": "quantity must be numeric"}],
+            "rejected_count": 1,
+        }
+
+    def fake_validate_windfor_records(records):
+        forecast_validations.append(records)
+        return {"valid_records": records, "invalid_records": [], "rejected_count": 0}
+
     monkeypatch.setattr(analysis_service.client, "fetch_json", fake_fetch_json)
+    monkeypatch.setattr(analysis_service, "validate_actual_generation_records", fake_validate_actual_generation_records)
+    monkeypatch.setattr(analysis_service, "validate_windfor_records", fake_validate_windfor_records)
     monkeypatch.setattr(
         analysis_service,
         "aggregate_hourly_actuals",
-        lambda rows: [{"startTime": row["startTime"], "actual_mw": row["actual_mw"]} for row in rows],
+        lambda rows: [{"startTime": row["startTime"], "actual_mw": 100.0} for row in rows],
     )
     monkeypatch.setattr(
         analysis_service,
@@ -102,6 +128,17 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
     )
 
     result = analysis_service.analyse_day(date(2026, 10, 26))
+
+    assert actual_validations == [[*valid_actual, *invalid_actual]]
+    assert len(forecast_validations) == 24
+    assert all(len(group) == 1 for group in forecast_validations)
+    assert all(
+        group[0]["publishTime"] == "2026-10-25T10:00:00Z"
+        and group[0]["settlementDate"] == "2026-10-26"
+        and group[0]["settlementPeriod"] == 1
+        and group[0]["generation"] == 90.0
+        for group in forecast_validations
+    )
 
     assert captured[0] == (
         "/generation/actual/per-type/wind-and-solar",

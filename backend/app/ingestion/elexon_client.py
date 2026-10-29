@@ -1,9 +1,32 @@
 
+from datetime import date, timedelta
+
+import pandas as pd
 from requests import Session
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
+from app.ingestion.schemas import normalize_fuelhh_records, validate_fuelhh_records
+
 BASE_URL = "https://data.elexon.co.uk/bmrs/api/v1"
+FUELHH_COLUMNS = ["businessType", "startTime", "quantity"]
+
+
+def fetch_fuelhh(
+    settlement_date_from: str,
+    settlement_date_to: str | None = None,
+    *,
+    client: "ElexonClient | None" = None,
+) -> pd.DataFrame:
+    if client is None:
+        client = ElexonClient()
+    return client.fetch_fuelhh(settlement_date_from, settlement_date_to)
+
+
+def fetch_windfor(start_time: str, *, client: "ElexonClient | None" = None) -> list[dict]:
+    if client is None:
+        client = ElexonClient()
+    return client.fetch_windfor(start_time)
 
 
 class ElexonClient:
@@ -53,15 +76,36 @@ class ElexonClient:
 
         return data
 
-    def fetch_fuelhh(self, settlement_date: str) -> list[dict]:
-        return self.fetch_json(
-            "/datasets/FUELHH",
-            {
-                "settlementDateFrom": settlement_date,
-                "settlementDateTo": settlement_date,
-                "format": "json",
-            },
-        )
+    def fetch_fuelhh(
+        self,
+        settlement_date_from: str,
+        settlement_date_to: str | None = None,
+    ) -> pd.DataFrame:
+        if settlement_date_to is None:
+            settlement_date_to = settlement_date_from
+
+        start_date = date.fromisoformat(settlement_date_from)
+        end_date = date.fromisoformat(settlement_date_to)
+        if end_date < start_date:
+            raise ValueError("settlement_date_to must not be before settlement_date_from")
+
+        normalized_records = []
+        chunk_start = start_date
+        while chunk_start <= end_date:
+            chunk_end = min(chunk_start + timedelta(days=6), end_date)
+            records = self.fetch_json(
+                "/datasets/FUELHH",
+                {
+                    "settlementDateFrom": chunk_start.isoformat(),
+                    "settlementDateTo": chunk_end.isoformat(),
+                    "format": "json",
+                },
+            )
+            validated = validate_fuelhh_records(records)
+            normalized_records.extend(normalize_fuelhh_records(validated["valid_records"]))
+            chunk_start = chunk_end + timedelta(days=1)
+
+        return pd.DataFrame(normalized_records, columns=FUELHH_COLUMNS)
 
     def fetch_windfor(self, start_time: str) -> list[dict]:
         return self.fetch_json(

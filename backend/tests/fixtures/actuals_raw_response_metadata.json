@@ -1,0 +1,9 @@
+{
+  "endpoint": "/generation/actual/per-type/wind-and-solar",
+  "request_params": {
+    "from": "2026-10-26T00:00:00Z",
+    "to": "2026-10-27T00:00:00Z",
+    "format": "json"
+  },
+  "captured_at_utc": "2026-10-28T16:28:10.104271Z"
+}

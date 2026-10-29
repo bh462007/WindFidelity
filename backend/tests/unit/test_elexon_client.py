@@ -1,8 +1,9 @@
 
+import pandas as pd
 import pytest
 import requests
 
-from app.ingestion.elexon_client import ElexonClient
+from app.ingestion.elexon_client import ElexonClient, fetch_fuelhh, fetch_windfor
 
 
 class FakeResponse:
@@ -37,6 +38,31 @@ class FakeSession:
         return self.response
 
 
+class SequencedSession(FakeSession):
+    def __init__(self, responses):
+        super().__init__(None)
+        self.responses = iter(responses)
+
+    def get(self, url, params, timeout):
+        self.calls.append((url, params, timeout))
+        response = next(self.responses)
+        if isinstance(response, Exception):
+            raise response
+        return response
+
+
+def fuelhh_record(start_time, fuel_type="WIND", generation=1234):
+    return {
+        "dataset": "FUELHH",
+        "publishTime": "2026-10-27T00:00:00Z",
+        "startTime": start_time,
+        "settlementDate": start_time[:10],
+        "settlementPeriod": 1,
+        "fuelType": fuel_type,
+        "generation": generation,
+    }
+
+
 def test_fetch_json_returns_list():
     session = FakeSession(FakeResponse([{"generation": 100}]))
     client = ElexonClient(session=session)
@@ -48,12 +74,29 @@ def test_fetch_json_returns_list():
 
 
 def test_fetch_fuelhh_uses_expected_parameters():
-    session = FakeSession(FakeResponse([{"generation": 100}]))
+    session = FakeSession(FakeResponse([
+        {
+            "dataset": "FUELHH",
+            "publishTime": "2026-10-27T00:00:00Z",
+            "startTime": "2026-10-26T23:30:00Z",
+            "settlementDate": "2026-10-26",
+            "settlementPeriod": 48,
+            "fuelType": "WIND",
+            "generation": 1234,
+        }
+    ]))
     client = ElexonClient(session=session)
 
     result = client.fetch_fuelhh("2026-10-26")
 
-    assert result == [{"generation": 100}]
+    expected = pd.DataFrame([
+        {
+            "businessType": "Wind generation",
+            "startTime": "2026-10-26T23:30:00Z",
+            "quantity": 1234.0,
+        }
+    ])
+    assert result.equals(expected)
     assert session.calls[0][0].endswith("/datasets/FUELHH")
     assert session.calls[0][1] == {
         "settlementDateFrom": "2026-10-26",
@@ -61,6 +104,86 @@ def test_fetch_fuelhh_uses_expected_parameters():
         "format": "json",
     }
     assert session.calls[0][2] == 10
+
+
+def test_fetch_fuelhh_splits_long_ranges_into_consecutive_seven_day_chunks():
+    session = SequencedSession([FakeResponse([]) for _ in range(5)])
+    client = ElexonClient(session=session)
+
+    result = client.fetch_fuelhh("2026-01-01", "2026-01-31")
+
+    assert result.empty
+    assert [
+        (
+            call[1]["settlementDateFrom"],
+            call[1]["settlementDateTo"],
+        )
+        for call in session.calls
+    ] == [
+        ("2026-01-01", "2026-01-07"),
+        ("2026-01-08", "2026-01-14"),
+        ("2026-01-15", "2026-01-21"),
+        ("2026-01-22", "2026-01-28"),
+        ("2026-01-29", "2026-01-31"),
+    ]
+
+
+def test_fetch_fuelhh_uses_one_request_for_ranges_of_seven_days_or_less():
+    session = SequencedSession([FakeResponse([])])
+    client = ElexonClient(session=session)
+
+    client.fetch_fuelhh("2026-01-01", "2026-01-07")
+
+    assert len(session.calls) == 1
+    assert session.calls[0][1]["settlementDateFrom"] == "2026-01-01"
+    assert session.calls[0][1]["settlementDateTo"] == "2026-01-07"
+
+
+def test_fetch_fuelhh_combines_only_valid_wind_records_from_chunks():
+    session = SequencedSession([
+        FakeResponse([
+            fuelhh_record("2026-01-01T00:00:00Z"),
+            fuelhh_record("2026-01-01T00:30:00Z", fuel_type="SOLAR"),
+        ]),
+        FakeResponse([fuelhh_record("2026-01-08T00:00:00Z", generation=5678)]),
+    ])
+    client = ElexonClient(session=session)
+
+    result = client.fetch_fuelhh("2026-01-01", "2026-01-08")
+
+    assert result.to_dict("records") == [
+        {
+            "businessType": "Wind generation",
+            "startTime": "2026-01-01T00:00:00Z",
+            "quantity": 1234.0,
+        },
+        {
+            "businessType": "Wind generation",
+            "startTime": "2026-01-08T00:00:00Z",
+            "quantity": 5678.0,
+        },
+    ]
+
+
+def test_fetch_fuelhh_handles_empty_chunks_with_expected_columns():
+    session = SequencedSession([FakeResponse([]), FakeResponse([])])
+    client = ElexonClient(session=session)
+
+    result = client.fetch_fuelhh("2026-01-01", "2026-01-08")
+
+    assert result.empty
+    assert list(result.columns) == ["businessType", "startTime", "quantity"]
+
+
+def test_fetch_fuelhh_propagates_failed_chunk():
+    error = requests.HTTPError("502 Bad Gateway")
+    session = SequencedSession([FakeResponse([]), error])
+    client = ElexonClient(session=session)
+
+    with pytest.raises(requests.HTTPError, match="502 Bad Gateway"):
+        client.fetch_fuelhh("2026-01-01", "2026-01-08")
+
+    assert len(session.calls) == 2
 
 
 def test_fetch_windfor_uses_expected_parameters():
@@ -76,6 +199,33 @@ def test_fetch_windfor_uses_expected_parameters():
         "format": "json",
     }
     assert session.calls[0][2] == 10
+
+
+def test_module_level_fetch_helpers_are_public_and_work():
+    fuel_session = FakeSession(FakeResponse([
+        {
+            "dataset": "FUELHH",
+            "publishTime": "2026-10-27T00:00:00Z",
+            "startTime": "2026-10-26T23:30:00Z",
+            "settlementDate": "2026-10-26",
+            "settlementPeriod": 48,
+            "fuelType": "WIND",
+            "generation": 1234,
+        }
+    ]))
+    wind_session = FakeSession(FakeResponse([{"generation": 100}]))
+
+    fuelhh = fetch_fuelhh("2026-10-26", client=ElexonClient(session=fuel_session))
+    assert fuelhh.equals(pd.DataFrame([
+        {
+            "businessType": "Wind generation",
+            "startTime": "2026-10-26T23:30:00Z",
+            "quantity": 1234.0,
+        }
+    ]))
+
+    wind_result = fetch_windfor("2026-10-26T00:00:00Z", client=ElexonClient(session=wind_session))
+    assert wind_result == [{"generation": 100}]
 
 
 def test_retry_policy_matches_intended_configuration():
