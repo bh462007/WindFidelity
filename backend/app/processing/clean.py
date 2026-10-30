@@ -1,17 +1,27 @@
 
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
+import logging
 
 
-def parse_timestamp(value: str) -> datetime:
-    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+logger = logging.getLogger(__name__)
+
+
+def parse_timestamp(value: str | datetime) -> datetime:
+    if isinstance(value, datetime):
+        parsed = value
+    elif isinstance(value, str):
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    else:
+        raise ValueError("Timestamp must be an ISO-8601 string or datetime")
+
     if parsed.tzinfo is None:
         raise ValueError("Timestamp must include a timezone")
     return parsed.astimezone(timezone.utc)
 
 
 def aggregate_hourly_actuals(records: list[dict]) -> list[dict]:
-    by_timestamp = defaultdict(float)
+    by_timestamp = {}
 
     for row in records:
         if row.get("businessType") != "Wind generation":
@@ -32,7 +42,17 @@ def aggregate_hourly_actuals(records: list[dict]) -> list[dict]:
         if not quantity >= 0:
             continue
 
-        by_timestamp[timestamp_dt] += quantity
+        if timestamp_dt in by_timestamp:
+            previous_quantity = by_timestamp[timestamp_dt]
+            if previous_quantity != quantity:
+                logger.warning(
+                    "Conflicting duplicate wind generation at %s: "
+                    "keeping %.6g over %.6g",
+                    timestamp_dt.isoformat(),
+                    quantity,
+                    previous_quantity,
+                )
+        by_timestamp[timestamp_dt] = quantity
 
     by_hour = defaultdict(list)
 
@@ -50,11 +70,11 @@ def aggregate_hourly_actuals(records: list[dict]) -> list[dict]:
         if len(readings) != 2 or minutes != {0, 30}:
             continue
 
-        actual_mw = sum(quantity for _, quantity in readings) / 2
+        generation_mw = sum(quantity for _, quantity in readings) / 2
 
         results.append({
-            "startTime": hour.isoformat().replace("+00:00", "Z"),
-            "actual_mw": actual_mw,
+            "startTime": hour,
+            "generation_mw": generation_mw,
         })
 
     return results
@@ -91,7 +111,7 @@ def detect_missing_half_hourly_actuals(
     if start_dt is not None and end_dt is not None and start_dt >= end_dt:
         raise ValueError("start_utc must be before end_utc")
 
-    by_timestamp = defaultdict(float)
+    by_timestamp = set()
 
     for row in records:
         if row.get("businessType") != "Wind generation":
@@ -112,7 +132,7 @@ def detect_missing_half_hourly_actuals(
         if quantity < 0:
             continue
 
-        by_timestamp[timestamp_dt] += quantity
+        by_timestamp.add(timestamp_dt)
 
     if not by_timestamp and start_dt is None and end_dt is None:
         return {"missing_hours": [], "missing_half_hours": []}

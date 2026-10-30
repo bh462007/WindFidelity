@@ -1,10 +1,13 @@
 
+import logging
+from datetime import datetime, timezone
+
 import pytest
 
 from app.processing.clean import aggregate_hourly_actuals, detect_missing_half_hourly_actuals
 
 
-def test_aggregates_onshore_and_offshore_and_averages_half_hours():
+def test_aggregates_duplicate_timestamps_using_keep_last():
     records = [
         {
             "businessType": "Wind generation",
@@ -35,7 +38,37 @@ def test_aggregates_onshore_and_offshore_and_averages_half_hours():
     result = aggregate_hourly_actuals(records)
 
     assert len(result) == 1
-    assert result[0]["actual_mw"] == 90
+    assert result[0]["generation_mw"] == 35
+    assert result[0]["startTime"] == datetime(2026, 10, 26, tzinfo=timezone.utc)
+
+
+def test_logs_conflicting_duplicate_values(caplog):
+    records = [
+        {
+            "businessType": "Wind generation",
+            "quantity": 60,
+            "startTime": "2026-10-26T00:00:00Z",
+        },
+        {
+            "businessType": "Wind generation",
+            "quantity": 40,
+            "startTime": "2026-10-26T00:00:00Z",
+        },
+        {
+            "businessType": "Wind generation",
+            "quantity": 80,
+            "startTime": "2026-10-26T00:30:00Z",
+        },
+    ]
+
+    with caplog.at_level(logging.WARNING):
+        result = aggregate_hourly_actuals(records)
+
+    assert result == [{
+        "startTime": datetime(2026, 10, 26, tzinfo=timezone.utc),
+        "generation_mw": 60,
+    }]
+    assert "Conflicting duplicate wind generation" in caplog.text
 
 
 def test_drops_incomplete_hours():

@@ -63,7 +63,11 @@ def match_forecasts_to_actuals(
     selected = select_forecast_vintages(forecasts)
 
     actual_by_time = {
-        parse_timestamp(row["startTime"]): float(row["actual_mw"])
+        parse_timestamp(row["startTime"]): float(
+            row["generation_mw"]
+            if "generation_mw" in row
+            else row["actual_mw"]
+        )
         for row in actuals
     }
 
