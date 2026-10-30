@@ -1,5 +1,4 @@
-
-from datetime import date, timedelta
+from datetime import date
 
 import pandas as pd
 from requests import Session
@@ -20,6 +19,7 @@ def fetch_fuelhh(
 ) -> pd.DataFrame:
     if client is None:
         client = ElexonClient()
+
     return client.fetch_fuelhh(settlement_date_from, settlement_date_to)
 
 
@@ -89,23 +89,22 @@ class ElexonClient:
         if end_date < start_date:
             raise ValueError("settlement_date_to must not be before settlement_date_from")
 
-        normalized_records = []
-        chunk_start = start_date
-        while chunk_start <= end_date:
-            chunk_end = min(chunk_start + timedelta(days=6), end_date)
-            records = self.fetch_json(
-                "/datasets/FUELHH",
-                {
-                    "settlementDateFrom": chunk_start.isoformat(),
-                    "settlementDateTo": chunk_end.isoformat(),
-                    "format": "json",
-                },
-            )
-            validated = validate_fuelhh_records(records)
-            normalized_records.extend(normalize_fuelhh_records(validated["valid_records"]))
-            chunk_start = chunk_end + timedelta(days=1)
+        records = self.fetch_json(
+            "/datasets/FUELHH/stream",
+            {
+                "settlementDateFrom": start_date.isoformat(),
+                "settlementDateTo": end_date.isoformat(),
+                "format": "json",
+            },
+        )
+        validated = validate_fuelhh_records(records)
+        normalized_records = normalize_fuelhh_records(validated["valid_records"])
 
-        return pd.DataFrame(normalized_records, columns=FUELHH_COLUMNS)
+        return (
+            pd.DataFrame(normalized_records, columns=FUELHH_COLUMNS)
+            .sort_values("startTime", kind="stable")
+            .reset_index(drop=True)
+        )
 
     def fetch_windfor(self, start_time: str) -> list[dict]:
         return self.fetch_json(

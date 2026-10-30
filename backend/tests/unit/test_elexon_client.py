@@ -96,8 +96,9 @@ def test_fetch_fuelhh_uses_expected_parameters():
             "quantity": 1234.0,
         }
     ])
+
     assert result.equals(expected)
-    assert session.calls[0][0].endswith("/datasets/FUELHH")
+    assert session.calls[0][0].endswith("/datasets/FUELHH/stream")
     assert session.calls[0][1] == {
         "settlementDateFrom": "2026-10-26",
         "settlementDateTo": "2026-10-26",
@@ -106,50 +107,31 @@ def test_fetch_fuelhh_uses_expected_parameters():
     assert session.calls[0][2] == 10
 
 
-def test_fetch_fuelhh_splits_long_ranges_into_consecutive_seven_day_chunks():
-    session = SequencedSession([FakeResponse([]) for _ in range(5)])
+def test_fetch_fuelhh_uses_stream_endpoint_for_full_date_range():
+    session = FakeSession(FakeResponse([]))
     client = ElexonClient(session=session)
 
     result = client.fetch_fuelhh("2026-01-01", "2026-01-31")
 
     assert result.empty
-    assert [
-        (
-            call[1]["settlementDateFrom"],
-            call[1]["settlementDateTo"],
-        )
-        for call in session.calls
-    ] == [
-        ("2026-01-01", "2026-01-07"),
-        ("2026-01-08", "2026-01-14"),
-        ("2026-01-15", "2026-01-21"),
-        ("2026-01-22", "2026-01-28"),
-        ("2026-01-29", "2026-01-31"),
-    ]
-
-
-def test_fetch_fuelhh_uses_one_request_for_ranges_of_seven_days_or_less():
-    session = SequencedSession([FakeResponse([])])
-    client = ElexonClient(session=session)
-
-    client.fetch_fuelhh("2026-01-01", "2026-01-07")
-
     assert len(session.calls) == 1
-    assert session.calls[0][1]["settlementDateFrom"] == "2026-01-01"
-    assert session.calls[0][1]["settlementDateTo"] == "2026-01-07"
+    assert session.calls[0][0].endswith("/datasets/FUELHH/stream")
+    assert session.calls[0][1] == {
+        "settlementDateFrom": "2026-01-01",
+        "settlementDateTo": "2026-01-31",
+        "format": "json",
+    }
 
 
-def test_fetch_fuelhh_combines_only_valid_wind_records_from_chunks():
-    session = SequencedSession([
-        FakeResponse([
-            fuelhh_record("2026-01-01T00:00:00Z"),
-            fuelhh_record("2026-01-01T00:30:00Z", fuel_type="SOLAR"),
-        ]),
-        FakeResponse([fuelhh_record("2026-01-08T00:00:00Z", generation=5678)]),
-    ])
+def test_fetch_fuelhh_filters_and_normalizes_wind_records():
+    session = FakeSession(FakeResponse([
+        fuelhh_record("2026-01-01T00:00:00Z"),
+        fuelhh_record("2026-01-01T00:30:00Z", fuel_type="SOLAR"),
+        fuelhh_record("2026-01-08T00:00:00Z", generation=5678),
+    ]))
     client = ElexonClient(session=session)
 
-    result = client.fetch_fuelhh("2026-01-01", "2026-01-08")
+    result = client.fetch_fuelhh("2026-01-01", "2026-01-31")
 
     assert result.to_dict("records") == [
         {
@@ -163,27 +145,32 @@ def test_fetch_fuelhh_combines_only_valid_wind_records_from_chunks():
             "quantity": 5678.0,
         },
     ]
+    assert len(session.calls) == 1
 
 
-def test_fetch_fuelhh_handles_empty_chunks_with_expected_columns():
-    session = SequencedSession([FakeResponse([]), FakeResponse([])])
+def test_fetch_fuelhh_handles_empty_response_with_expected_columns():
+    session = FakeSession(FakeResponse([]))
     client = ElexonClient(session=session)
 
-    result = client.fetch_fuelhh("2026-01-01", "2026-01-08")
+    result = client.fetch_fuelhh("2026-01-01", "2026-01-31")
 
     assert result.empty
-    assert list(result.columns) == ["businessType", "startTime", "quantity"]
+    assert list(result.columns) == [
+        "businessType",
+        "startTime",
+        "quantity",
+    ]
 
 
-def test_fetch_fuelhh_propagates_failed_chunk():
+def test_fetch_fuelhh_propagates_http_error():
     error = requests.HTTPError("502 Bad Gateway")
-    session = SequencedSession([FakeResponse([]), error])
+    session = FakeSession(error)
     client = ElexonClient(session=session)
 
     with pytest.raises(requests.HTTPError, match="502 Bad Gateway"):
-        client.fetch_fuelhh("2026-01-01", "2026-01-08")
+        client.fetch_fuelhh("2026-01-01", "2026-01-31")
 
-    assert len(session.calls) == 2
+    assert len(session.calls) == 1
 
 
 def test_fetch_windfor_uses_expected_parameters():
@@ -215,7 +202,10 @@ def test_module_level_fetch_helpers_are_public_and_work():
     ]))
     wind_session = FakeSession(FakeResponse([{"generation": 100}]))
 
-    fuelhh = fetch_fuelhh("2026-10-26", client=ElexonClient(session=fuel_session))
+    fuelhh = fetch_fuelhh(
+        "2026-10-26",
+        client=ElexonClient(session=fuel_session),
+    )
     assert fuelhh.equals(pd.DataFrame([
         {
             "businessType": "Wind generation",
@@ -224,7 +214,10 @@ def test_module_level_fetch_helpers_are_public_and_work():
         }
     ]))
 
-    wind_result = fetch_windfor("2026-10-26T00:00:00Z", client=ElexonClient(session=wind_session))
+    wind_result = fetch_windfor(
+        "2026-10-26T00:00:00Z",
+        client=ElexonClient(session=wind_session),
+    )
     assert wind_result == [{"generation": 100}]
 
 
