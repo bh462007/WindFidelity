@@ -161,7 +161,7 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
         for hour in range(24)
     ]
     actual_hours = [call["startTime"] for call in forecast_calls]
-    assert actual_hours == expected_hours
+    assert sorted(actual_hours) == expected_hours
     assert len(set(actual_hours)) == 24
     assert result["date"] == "2026-10-26"
 

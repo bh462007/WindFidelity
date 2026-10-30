@@ -243,3 +243,17 @@ def test_detects_missing_hour_inside_explicit_window():
 def test_rejects_invalid_bounds(start_utc, end_utc):
     with pytest.raises(ValueError):
         detect_missing_half_hourly_actuals([], start_utc=start_utc, end_utc=end_utc)
+
+
+def test_ignores_non_wind_records():
+    records = [
+        {"businessType": "Wind generation", "quantity": 100, "startTime": "2026-10-26T00:00:00Z"},
+        {"businessType": "Wind generation", "quantity": 80, "startTime": "2026-10-26T00:30:00Z"},
+        {"businessType": "Solar generation", "quantity": 500, "startTime": "2026-10-26T00:00:00Z"},
+        {"businessType": "Solar generation", "quantity": 500, "startTime": "2026-10-26T00:30:00Z"},
+    ]
+
+    assert aggregate_hourly_actuals(records) == [{
+        "startTime": datetime(2026, 10, 26, tzinfo=timezone.utc),
+        "generation_mw": 90,
+    }]
