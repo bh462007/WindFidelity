@@ -6,8 +6,11 @@ from fastapi import APIRouter, HTTPException, Query
 
 from app.services.analysis_service import analyse_day
 
+from app.services.cache import TTLCache
+
 router = APIRouter(prefix="/api/v1", tags=["metrics"])
 
+cache = TTLCache(ttl_seconds=300)
 
 @router.get("/metrics")
 def get_metrics(
@@ -17,7 +20,7 @@ def get_metrics(
     ),
 ):
     try:
-        return analyse_day(day)
+        return cache.get_or_compute(day, lambda: analyse_day(day))
     except requests.RequestException as exc:
         raise HTTPException(
             status_code=502,

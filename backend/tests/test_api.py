@@ -8,8 +8,14 @@ from app.api import routes_metrics
 from app.main import app
 from app.services import analysis_service
 
+import pytest
+
 client = TestClient(app)
 
+@pytest.fixture(autouse=True)
+def clear_route_cache():
+    routes_metrics.cache.clear()
+    yield
 
 def test_health_endpoint():
     response = client.get("/health")
@@ -173,6 +179,11 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
     assert sorted(actual_hours) == expected_hours
     assert len(set(actual_hours)) == 24
     assert result["date"] == "2026-10-26"
+    assert result["coverage"] == {
+        "expected_hours": 24,
+        "matched_hours": 1,
+        "unmatched_hours": 23,
+    }
 
 
 def test_metrics_route_propagates_elexon_http_error(monkeypatch):
@@ -197,3 +208,19 @@ def test_metrics_rejects_invalid_date():
     )
 
     assert response.status_code == 422
+
+
+def test_metrics_route_caches_repeated_requests(monkeypatch):
+    calls = []
+
+    def fake_analyse_day(day):
+        calls.append(day)
+        return {"date": day.isoformat()}
+
+    monkeypatch.setattr(routes_metrics, "analyse_day", fake_analyse_day)
+
+    for _ in range(2):
+        response = client.get("/api/v1/metrics", params={"day": "2026-10-26"})
+        assert response.status_code == 200
+
+    assert len(calls) == 1

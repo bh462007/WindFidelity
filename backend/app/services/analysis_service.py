@@ -63,6 +63,11 @@ def analyse_day(day: date) -> dict:
     return {
         "date": day.isoformat(),
         "timezone": "UTC",
+        "coverage": {
+            "expected_hours": len(delivery_times),
+            "matched_hours": len(matched),
+            "unmatched_hours": len(delivery_times) - len(matched),
+        },
         "forecast_cutoff": {
             "cutoff_utc": cutoff_utc,
             "policy": (
