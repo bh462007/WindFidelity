@@ -56,24 +56,22 @@ def test_metrics_endpoint(monkeypatch):
 def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch):
     captured = []
     forecast_validations = []
-    actual_validations = []
 
-    valid_actual = [{
-        "businessType": "Wind generation",
+    fuelhh_rows = [{
+        "dataset": "FUELHH",
+        "publishTime": "2026-10-27T00:00:00Z",
         "startTime": "2026-10-26T00:00:00Z",
-        "quantity": 100.0,
-    }]
-    invalid_actual = [{
-        "businessType": "Wind generation",
-        "startTime": "2026-10-26T00:30:00Z",
-        "quantity": "bad",
+        "settlementDate": "2026-10-26",
+        "settlementPeriod": 1,
+        "fuelType": "WIND",
+        "generation": 100.0,
     }]
 
     def fake_fetch_json(endpoint, params):
         captured.append((endpoint, params))
 
-        if endpoint == "/generation/actual/per-type/wind-and-solar":
-            return valid_actual + invalid_actual
+        if endpoint == "/datasets/FUELHH/stream":
+            return fuelhh_rows
 
         if endpoint == "/forecast/generation/wind/evolution":
             return [{
@@ -86,25 +84,31 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
 
         raise AssertionError(f"Unexpected endpoint: {endpoint}")
 
-    def fake_validate_actual_generation_records(records):
-        actual_validations.append(records)
-        return {
-            "valid_records": valid_actual,
-            "invalid_records": [{"record": invalid_actual[0], "reason": "quantity must be numeric"}],
-            "rejected_count": 1,
-        }
-
     def fake_validate_windfor_records(records):
         forecast_validations.append(records)
-        return {"valid_records": records, "invalid_records": [], "rejected_count": 0}
+        return {
+            "valid_records": records,
+            "invalid_records": [],
+            "rejected_count": 0,
+        }
 
-    monkeypatch.setattr(analysis_service.client, "fetch_json", fake_fetch_json)
-    monkeypatch.setattr(analysis_service, "validate_actual_generation_records", fake_validate_actual_generation_records)
-    monkeypatch.setattr(analysis_service, "validate_windfor_records", fake_validate_windfor_records)
+    monkeypatch.setattr(
+        analysis_service.client,
+        "fetch_json",
+        fake_fetch_json,
+    )
+    monkeypatch.setattr(
+        analysis_service,
+        "validate_windfor_records",
+        fake_validate_windfor_records,
+    )
     monkeypatch.setattr(
         analysis_service,
         "aggregate_hourly_actuals",
-        lambda rows: [{"startTime": row["startTime"], "actual_mw": 100.0} for row in rows],
+        lambda rows: [
+            {"startTime": row["startTime"], "actual_mw": 100.0}
+            for row in rows
+        ],
     )
     monkeypatch.setattr(
         analysis_service,
@@ -129,9 +133,9 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
 
     result = analysis_service.analyse_day(date(2026, 10, 26))
 
-    assert actual_validations == [[*valid_actual, *invalid_actual]]
     assert len(forecast_validations) == 24
     assert all(len(group) == 1 for group in forecast_validations)
+
     assert all(
         group[0]["publishTime"] == "2026-10-25T10:00:00Z"
         and group[0]["settlementDate"] == "2026-10-26"
@@ -141,17 +145,20 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
     )
 
     assert captured[0] == (
-        "/generation/actual/per-type/wind-and-solar",
+        "/datasets/FUELHH/stream",
         {
-            "from": "2026-10-26T00:00:00Z",
-            "to": "2026-10-27T00:00:00Z",
+            "settlementDateFrom": "2026-10-26",
+            "settlementDateTo": "2026-10-26",
             "format": "json",
         },
     )
 
     forecast_calls = [
-        params for endpoint, params in captured if endpoint == "/forecast/generation/wind/evolution"
+        params
+        for endpoint, params in captured
+        if endpoint == "/forecast/generation/wind/evolution"
     ]
+
     assert len(forecast_calls) == 24
     assert all(call["format"] == "json" for call in forecast_calls)
     assert all("startTime" in call for call in forecast_calls)
@@ -160,7 +167,9 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
         f"2026-10-26T{hour:02d}:00:00Z"
         for hour in range(24)
     ]
+
     actual_hours = [call["startTime"] for call in forecast_calls]
+
     assert sorted(actual_hours) == expected_hours
     assert len(set(actual_hours)) == 24
     assert result["date"] == "2026-10-26"

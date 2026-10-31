@@ -20,15 +20,8 @@ def analyse_day(day: date) -> dict:
     start = datetime.combine(day, datetime.min.time(), tzinfo=timezone.utc)
     end = start + timedelta(days=1)
 
-    actuals_raw = client.fetch_json(
-        "/generation/actual/per-type/wind-and-solar",
-        {
-            "from": start.strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "to": end.strftime("%Y-%m-%dT%H:%M:%SZ"),
-            "format": "json",
-        },
-    )
-    actuals_validated = validate_actual_generation_records(actuals_raw)
+    actuals_df = client.fetch_fuelhh(day.isoformat())
+    actuals_records = actuals_df.to_dict("records")
 
     delivery_times = [
         start + timedelta(hours=hour)
@@ -57,7 +50,7 @@ def analyse_day(day: date) -> dict:
         for record in group
     ]
 
-    actuals = aggregate_hourly_actuals(actuals_validated["valid_records"])
+    actuals = aggregate_hourly_actuals(actuals_records)
     matched = match_forecasts_to_actuals(forecasts, actuals)
 
     if not matched:

@@ -4,8 +4,11 @@ from datetime import datetime, time, timedelta, timezone
 from app.config import FORECAST_CUTOFF_UTC
 
 
-def parse_timestamp(value: str) -> datetime:
-    parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+def parse_timestamp(value: str | datetime) -> datetime:
+    if isinstance(value, datetime):
+        parsed = value
+    else:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
 
     if parsed.tzinfo is None:
         raise ValueError("Timestamp must include a timezone")
