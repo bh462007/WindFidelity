@@ -3,7 +3,6 @@ import logging
 from datetime import datetime, timezone
 
 import pytest
-
 from app.processing.clean import aggregate_hourly_actuals, detect_missing_half_hourly_actuals
 
 

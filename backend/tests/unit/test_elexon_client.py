@@ -2,7 +2,6 @@
 import pandas as pd
 import pytest
 import requests
-
 from app.ingestion.elexon_client import ElexonClient, fetch_fuelhh, fetch_windfor
 
 

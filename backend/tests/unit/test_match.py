@@ -54,11 +54,19 @@ def test_skips_records_with_missing_timestamps():
     assert select_forecast_vintages(forecasts) == []
 
 
+def _forecast(publish_time, generation):
+    return {
+        "startTime": "2026-10-26T12:00:00Z",
+        "publishTime": publish_time,
+        "generation": generation,
+    }
+
+
 def test_forecast_published_exactly_at_cutoff_is_selected():
     forecasts = [
-        {"startTime": "2026-10-26T12:00:00Z", "publishTime": "2026-10-25T11:00:00Z", "generation": 100},
-        {"startTime": "2026-10-26T12:00:00Z", "publishTime": "2026-10-25T12:00:00Z", "generation": 200},
-        {"startTime": "2026-10-26T12:00:00Z", "publishTime": "2026-10-25T12:00:01Z", "generation": 300},
+        _forecast("2026-10-25T11:00:00Z", 100),
+        _forecast("2026-10-25T12:00:00Z", 200),
+        _forecast("2026-10-25T12:00:01Z", 300),
     ]
 
     result = select_forecast_vintages(forecasts)
@@ -68,9 +76,7 @@ def test_forecast_published_exactly_at_cutoff_is_selected():
 
 
 def test_no_candidate_at_or_before_cutoff_returns_nothing():
-    forecasts = [
-        {"startTime": "2026-10-26T12:00:00Z", "publishTime": "2026-10-25T12:00:01Z", "generation": 300},
-    ]
+    forecasts = [_forecast("2026-10-25T12:00:01Z", 300)]
 
     assert select_forecast_vintages(forecasts) == []
 

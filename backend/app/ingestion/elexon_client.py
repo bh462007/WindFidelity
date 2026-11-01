@@ -1,11 +1,10 @@
 from datetime import date
 
 import pandas as pd
+from app.ingestion.schemas import normalize_fuelhh_records, validate_fuelhh_records
 from requests import Session
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
-
-from app.ingestion.schemas import normalize_fuelhh_records, validate_fuelhh_records
 
 BASE_URL = "https://data.elexon.co.uk/bmrs/api/v1"
 FUELHH_COLUMNS = ["businessType", "startTime", "quantity"]

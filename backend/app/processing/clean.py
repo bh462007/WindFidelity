@@ -1,8 +1,7 @@
 
+import logging
 from collections import defaultdict
 from datetime import datetime, timedelta, timezone
-import logging
-
 
 logger = logging.getLogger(__name__)
 

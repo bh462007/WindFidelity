@@ -1,6 +1,5 @@
 
 import pytest
-
 from app.processing.metrics import calculate_metrics
 
 

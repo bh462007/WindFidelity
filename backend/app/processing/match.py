@@ -1,5 +1,5 @@
 
-from datetime import datetime, time, timedelta, timezone
+from datetime import datetime, timedelta, timezone
 
 from app.config import FORECAST_CUTOFF_UTC
 

@@ -1,5 +1,4 @@
 import pytest
-
 from app.services.cache import TTLCache
 
 
@@ -45,3 +44,14 @@ def test_does_not_cache_exceptions():
         cache.get_or_compute("k", boom)
 
     assert cache.get_or_compute("k", lambda: "ok") == "ok"
+
+
+def test_size_counts_only_live_entries():
+    cache, now = make_cache()
+    cache.get_or_compute("a", lambda: 1)
+    assert cache.size() == 1
+
+    now[0] = 1060
+    assert cache.size() == 0
+
+    

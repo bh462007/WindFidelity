@@ -5,21 +5,18 @@ from datetime import date, datetime, timedelta, timezone
 from app.config import FORECAST_CUTOFF_UTC
 from app.ingestion.elexon_client import ElexonClient
 from app.ingestion.schemas import (
-    validate_actual_generation_records,
     validate_windfor_records,
 )
 from app.processing.clean import aggregate_hourly_actuals
 from app.processing.match import match_forecasts_to_actuals
 from app.processing.metrics import calculate_metrics
 
-
 client = ElexonClient()
 
 
 def analyse_day(day: date) -> dict:
     start = datetime.combine(day, datetime.min.time(), tzinfo=timezone.utc)
-    end = start + timedelta(days=1)
-
+    
     actuals_df = client.fetch_fuelhh(day.isoformat())
     actuals_records = actuals_df.to_dict("records")
 

@@ -18,3 +18,10 @@ class TTLCache:
 
     def clear(self):
         self._items.clear()
+
+    def size(self) -> int:
+        now = self._clock()
+        return sum(
+            1 for stored_at, _ in self._items.values()
+            if now - stored_at < self.ttl_seconds
+        )

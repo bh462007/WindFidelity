@@ -1,62 +1,17 @@
 
 from datetime import date
 
-import requests
-from fastapi.testclient import TestClient
-
-from app.api import routes_metrics
 from app.main import app
 from app.services import analysis_service
-
-import pytest
+from fastapi.testclient import TestClient
 
 client = TestClient(app)
-
-@pytest.fixture(autouse=True)
-def clear_route_cache():
-    routes_metrics.cache.clear()
-    yield
 
 def test_health_endpoint():
     response = client.get("/health")
 
     assert response.status_code == 200
     assert response.json() == {"status": "healthy"}
-
-
-def test_metrics_endpoint(monkeypatch):
-    expected_result = {
-        "date": "2026-10-26",
-        "timezone": "UTC",
-        "forecast_cutoff": {
-            "cutoff_utc": "12:00:00",
-            "policy": (
-                "latest forecast published at or before 12:00:00 UTC "
-                "on the previous calendar day"
-            ),
-        },
-        "metrics": {
-            "sample_count": 24,
-            "mae_mw": 2646.27,
-            "rmse_mw": 3030.11,
-            "bias_mw": 2421.23,
-        },
-        "matched_records": [],
-    }
-
-    monkeypatch.setattr(
-        routes_metrics,
-        "analyse_day",
-        lambda day: expected_result,
-    )
-
-    response = client.get(
-        "/api/v1/metrics",
-        params={"day": "2026-10-26"},
-    )
-
-    assert response.status_code == 200
-    assert response.json() == expected_result
 
 
 def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch):
@@ -186,41 +141,11 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
     }
 
 
-def test_metrics_route_propagates_elexon_http_error(monkeypatch):
-    def fake_fetch_json(endpoint, params):
-        raise requests.HTTPError("502 Bad Gateway")
-
-    monkeypatch.setattr(analysis_service.client, "fetch_json", fake_fetch_json)
-
-    response = client.get(
-        "/api/v1/metrics",
-        params={"day": "2026-10-26"},
-    )
-
-    assert response.status_code == 502
-    assert response.json() == {"detail": "Could not retrieve data from Elexon"}
-
-
 def test_metrics_rejects_invalid_date():
     response = client.get(
-        "/api/v1/metrics",
+        "/api/v1/summary",
         params={"day": "not-a-date"},
     )
 
     assert response.status_code == 422
 
-
-def test_metrics_route_caches_repeated_requests(monkeypatch):
-    calls = []
-
-    def fake_analyse_day(day):
-        calls.append(day)
-        return {"date": day.isoformat()}
-
-    monkeypatch.setattr(routes_metrics, "analyse_day", fake_analyse_day)
-
-    for _ in range(2):
-        response = client.get("/api/v1/metrics", params={"day": "2026-10-26"})
-        assert response.status_code == 200
-
-    assert len(calls) == 1

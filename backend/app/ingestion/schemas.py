@@ -47,7 +47,7 @@ def _validate_fuelhh_record(record: dict) -> tuple[bool, str | None]:
         "generation": (int, float),
     }
 
-    for field, expected in required.items():
+    for field in required:
         if field not in record or record[field] is None:
             return False, f"missing required field: {field}"
 
@@ -92,7 +92,7 @@ def _validate_windfor_record(record: dict) -> tuple[bool, str | None]:
         "generation": (int, float),
     }
 
-    for field, expected in required.items():
+    for field in required:
         if field not in record or record[field] is None:
             return False, f"missing required field: {field}"
 
@@ -178,7 +178,7 @@ def _validate_actual_generation_record(record: dict) -> tuple[bool, str | None]:
         "quantity": (int, float),
     }
 
-    for field, expected in required.items():
+    for field  in required:
         if field not in record or record[field] is None:
             return False, f"missing required field: {field}"
 
