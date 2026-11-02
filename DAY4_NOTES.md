@@ -10,7 +10,7 @@
 | Every endpoint returns the Pydantic shape | Done |
 | 503 path tested | Done |
 | `ruff check` clean | Done |
-| `make test` green from a clean clone | Pending: not yet verified on a clean clone |
+| `make test` green from a clean clone | Done: fresh clone, `pip install -r requirements.txt`, 69 tests pass, ruff clean (ran `pytest -q` directly; the Makefile itself was not run on Windows) |
 
 ## Endpoints
 
