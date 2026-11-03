@@ -4,6 +4,7 @@ import { ErrorState, Loading } from './components/States'
 import { useAnalysis } from './hooks/useAnalysis'
 import { SummaryCards } from './components/SummaryCards'
 import { GenerationChart } from './components/GenerationChart'
+import { ErrorChart } from './components/ErrorChart'
 
 const DEFAULT_DAY = '2026-01-15'
 
@@ -37,6 +38,7 @@ export default function App() {
                         <>
             <SummaryCards summary={state.summary} />
             <GenerationChart points={state.series.points} />
+            <ErrorChart points={state.series.points} />
           </>
         ))}
     </main>
