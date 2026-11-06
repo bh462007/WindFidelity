@@ -3,6 +3,7 @@ from datetime import date
 
 from app.main import app
 from app.services import analysis_service
+from app.services.activity import activity_log
 from fastapi.testclient import TestClient
 
 client = TestClient(app)
@@ -138,6 +139,21 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
         "expected_hours": 24,
         "matched_hours": 1,
         "unmatched_hours": 23,
+    }
+
+    events = list(reversed(activity_log.recent()))
+    assert [e["kind"] for e in events] == ["ingestion", "ingestion", "match"]
+    assert events[0]["details"] == {"source": "FUELHH", "day": "2026-10-26", "rows": 1}
+    assert events[1]["details"] == {
+        "source": "WINDFOR",
+        "day": "2026-10-26",
+        "rows": 24,
+        "rejected": 0,
+    }
+    assert events[2]["details"] == {
+        "day": "2026-10-26",
+        "matched_hours": 1,
+        "expected_hours": 24,
     }
 
 

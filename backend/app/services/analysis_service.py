@@ -10,6 +10,7 @@ from app.ingestion.schemas import (
 from app.processing.clean import aggregate_hourly_actuals
 from app.processing.match import match_forecasts_to_actuals
 from app.processing.metrics import calculate_metrics
+from app.services.activity import activity_log
 
 client = ElexonClient()
 
@@ -19,6 +20,14 @@ def analyse_day(day: date) -> dict:
     
     actuals_df = client.fetch_fuelhh(day.isoformat())
     actuals_records = actuals_df.to_dict("records")
+
+    activity_log.record(
+        "ingestion",
+        f"FUELHH {day.isoformat()}: {len(actuals_df)} wind rows loaded",
+        source="FUELHH",
+        day=day.isoformat(),
+        rows=len(actuals_df),
+    )
 
     delivery_times = [
         start + timedelta(hours=hour)
@@ -33,22 +42,39 @@ def analyse_day(day: date) -> dict:
                 "format": "json",
             },
         )
-        validation = validate_windfor_records(raw_group)
-        return validation["valid_records"]
+        return validate_windfor_records(raw_group)
 
     with ThreadPoolExecutor(max_workers=6) as executor:
-        history_groups = list(
+        validations = list(
             executor.map(fetch_evolution, delivery_times)
         )
 
     forecasts = [
         record
-        for group in history_groups
-        for record in group
+        for validation in validations
+        for record in validation["valid_records"]
     ]
+    rejected = sum(validation["rejected_count"] for validation in validations)
+    activity_log.record(
+        "ingestion",
+        f"WINDFOR {day.isoformat()}: {len(forecasts)} forecast rows loaded, "
+        f"{rejected} rejected",
+        source="WINDFOR",
+        day=day.isoformat(),
+        rows=len(forecasts),
+        rejected=rejected,
+    )
 
     actuals = aggregate_hourly_actuals(actuals_records)
     matched = match_forecasts_to_actuals(forecasts, actuals)
+
+    activity_log.record(
+        "match",
+        f"{day.isoformat()}: {len(matched)} of {len(delivery_times)} hours matched",
+        day=day.isoformat(),
+        matched_hours=len(matched),
+        expected_hours=len(delivery_times),
+    )
 
     if not matched:
         raise ValueError(

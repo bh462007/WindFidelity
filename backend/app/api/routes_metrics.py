@@ -4,6 +4,7 @@ from typing import Annotated
 import requests
 from app.errors import ApiError
 from app.models.responses import ErrorResponse, SummaryResponse, TimeseriesResponse
+from app.services.activity import activity_log
 from app.services.analysis_service import analyse_day
 from app.services.cache import TTLCache
 from fastapi import APIRouter, Query
@@ -19,14 +20,42 @@ DayParam = Annotated[
 
 
 def _analysis(day: date) -> dict:
+    computed = False
+
+    def compute() -> dict:
+        nonlocal computed
+        computed = True
+        return analyse_day(day)
+
     try:
-        return cache.get_or_compute(day, lambda: analyse_day(day))
+        result = cache.get_or_compute(day, compute)
     except requests.RequestException as exc:
+        activity_log.record(
+            "error",
+            f"{day.isoformat()}: could not retrieve data from Elexon",
+            day=day.isoformat(),
+            code="upstream_unavailable",
+        )
         raise ApiError(
             503, "upstream_unavailable", "Could not retrieve data from Elexon"
         ) from exc
     except ValueError as exc:
+        activity_log.record(
+            "error",
+            f"{day.isoformat()}: {exc}",
+            day=day.isoformat(),
+            code="no_data",
+        )
         raise ApiError(422, "no_data", str(exc)) from exc
+
+    outcome = "miss" if computed else "hit"
+    activity_log.record(
+        "cache",
+        f"{day.isoformat()}: cache {outcome}",
+        day=day.isoformat(),
+        result=outcome,
+    )
+    return result
 
 
 @router.get("/summary", response_model=SummaryResponse, responses=ERROR_RESPONSES)

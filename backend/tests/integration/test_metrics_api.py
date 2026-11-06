@@ -1,5 +1,6 @@
 import requests
 from app.api import routes_metrics
+from app.services.activity import activity_log
 
 POLICY = (
     "latest forecast published at or before 12:00:00 UTC "
@@ -93,3 +94,27 @@ def test_invalid_date_returns_422_envelope(client):
     error = response.json()["error"]
     assert error["code"] == "invalid_request"
     assert "day" in error["message"]
+
+
+def test_cache_miss_then_hit_is_recorded_in_activity(client, monkeypatch):
+    monkeypatch.setattr(routes_metrics, "analyse_day", lambda day: ANALYSIS)
+
+    client.get("/api/v1/summary", params={"day": "2026-01-15"})
+    client.get("/api/v1/summary", params={"day": "2026-01-15"})
+
+    cache_events = [e for e in activity_log.recent() if e["kind"] == "cache"]
+    assert [e["details"]["result"] for e in cache_events] == ["hit", "miss"]
+    assert cache_events[0]["details"]["day"] == "2026-01-15"
+
+
+def test_upstream_failure_is_recorded_in_activity(client, monkeypatch):
+    def boom(day):
+        raise requests.ConnectionError("down")
+
+    monkeypatch.setattr(routes_metrics, "analyse_day", boom)
+
+    client.get("/api/v1/summary", params={"day": "2026-01-15"})
+
+    errors = [e for e in activity_log.recent() if e["kind"] == "error"]
+    assert len(errors) == 1
+    assert errors[0]["details"]["code"] == "upstream_unavailable"
