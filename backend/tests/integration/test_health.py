@@ -21,3 +21,7 @@ def test_ready_reflects_cached_days(client):
     response = client.get("/ready")
 
     assert response.json() == {"status": "ready", "cached_days": 1}
+
+
+def test_api_is_named_windfidelity(client):
+    assert client.get("/openapi.json").json()["info"]["title"] == "WindFidelity"

@@ -1,3 +1,4 @@
+from app.api.routes_activity import router as activity_router
 from app.api.routes_health import router as health_router
 from app.api.routes_metrics import router as metrics_router
 from app.errors import ApiError
@@ -6,7 +7,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 app = FastAPI(
-    title="GridBricks",
+    title="WindFidelity",
     description="Wind generation forecast accuracy monitoring",
     version="0.1.0",
 )
@@ -34,3 +35,4 @@ async def handle_validation_error(request, exc: RequestValidationError):
 
 app.include_router(metrics_router)
 app.include_router(health_router)
+app.include_router(activity_router)

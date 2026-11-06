@@ -58,3 +58,16 @@ class ErrorBody(BaseModel):
 
 class ErrorResponse(BaseModel):
     error: ErrorBody
+
+
+class ActivityEvent(BaseModel):
+    id: int
+    timestamp: str
+    kind: Literal["ingestion", "match", "cache", "error"]
+    message: str
+    details: dict[str, str | int | float]
+
+
+class ActivityResponse(BaseModel):
+    events: list[ActivityEvent]
+    capacity: int
