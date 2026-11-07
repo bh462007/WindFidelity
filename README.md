@@ -71,7 +71,7 @@ frontend/
     components/   summary, charts, states, System Activity
     hooks/        data loading
     lib/          downsampling and chart data
-scripts/          sample fetching and evaluation
+scripts/          fetch_sample.py captures raw Elexon responses as sample data
 ```
 
 ## Running it
