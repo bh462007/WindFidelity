@@ -13,18 +13,27 @@ function biasHint(value: number) {
   return 'No average bias'
 }
 
+function biasTone(value: number) {
+  const rounded = Math.round(value)
+  if (rounded > 0) return 'pos'
+  if (rounded < 0) return 'neg'
+  return undefined
+}
+
 interface CardProps {
   label: string
   value: string
   hint: string
+  valueTone?: 'pos' | 'neg'
+  hintTone?: 'warn'
 }
 
-function Card({ label, value, hint }: CardProps) {
+function Card({ label, value, hint, valueTone, hintTone }: CardProps) {
   return (
     <section className="card">
       <h3>{label}</h3>
-      <p className="value">{value}</p>
-      <p className="hint">{hint}</p>
+      <p className={valueTone ? `value ${valueTone}` : 'value'}>{value}</p>
+      <p className={hintTone ? `hint ${hintTone}` : 'hint'}>{hint}</p>
     </section>
   )
 }
@@ -45,11 +54,13 @@ export function SummaryCards({ summary }: { summary: Summary }) {
           label="Bias"
           value={formatSignedMw(metrics.bias_mw)}
           hint={biasHint(metrics.bias_mw)}
+          valueTone={biasTone(metrics.bias_mw)}
         />
         <Card
           label="Coverage"
           value={`${coveragePct}%`}
           hint={`${coverage.matched_hours} of ${coverage.expected_hours} hours matched`}
+          hintTone={coverage.unmatched_hours > 0 ? 'warn' : undefined}
         />
       </div>
       <p className="caption">

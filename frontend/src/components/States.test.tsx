@@ -33,4 +33,10 @@ describe('States', () => {
     expect(screen.getByRole('heading', { name: "That date isn't valid" })).toBeInTheDocument()
     expect(screen.queryByRole('button', { name: 'Retry' })).not.toBeInTheDocument()
   })
+
+  it('shows the reason a request failed', () => {
+    render(<ErrorState kind="unavailable" message="Elexon down" onRetry={vi.fn()} />)
+
+    expect(screen.getByText('Elexon down')).toBeInTheDocument()
+  })
 })

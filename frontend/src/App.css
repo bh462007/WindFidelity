@@ -303,3 +303,21 @@
   min-width: 0;
   overflow-wrap: anywhere;
 }
+
+.card .value.pos {
+  color: var(--positive);
+}
+
+.card .value.neg {
+  color: var(--negative);
+}
+
+.card .hint.warn {
+  color: var(--warning);
+}
+
+.state .detail {
+  margin-top: 8px;
+  font-family: var(--font-numeric);
+  font-size: 0.8125rem;
+}

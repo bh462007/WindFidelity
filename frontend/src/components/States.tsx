@@ -19,7 +19,7 @@ export function ErrorState({ kind, message, onRetry }: ErrorStateProps) {
     return (
       <div className="state">
         <h2>No data for this day</h2>
-        <p>No matching forecasts and actuals were found. Try another date.</p>
+        <p>Forecasts and actuals haven't been published for this day. Pick another day.</p>
       </div>
     )
   }
@@ -36,7 +36,8 @@ export function ErrorState({ kind, message, onRetry }: ErrorStateProps) {
   return (
     <div className="state" role="alert">
       <h2>Data unavailable</h2>
-      <p>{message}</p>
+      <p>The data couldn't be loaded. If this keeps happening, check that the backend is running.</p>
+      {message && <p className="detail">{message}</p>}
       <button type="button" onClick={onRetry}>
         Retry
       </button>
