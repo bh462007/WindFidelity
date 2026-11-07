@@ -2,6 +2,7 @@ import {
   Bar,
   BarChart,
   CartesianGrid,
+  Cell,
   ReferenceLine,
   ResponsiveContainer,
   Tooltip,
@@ -9,6 +10,8 @@ import {
   YAxis,
 } from 'recharts'
 import type { Point } from '../api/client'
+import { errorRows } from '../lib/chartData'
+import { axisStyle, gridStyle, hourLabel, prefersReducedMotion, tooltipStyle } from './chartTheme'
 
 function formatSignedMw(value: unknown) {
   const rounded = Math.round(Number(value))
@@ -16,10 +19,7 @@ function formatSignedMw(value: unknown) {
 }
 
 export function ErrorChart({ points }: { points: Point[] }) {
-  const data = points.map((p) => ({
-    hour: p.startTime.slice(11, 16),
-    Error: Math.round(p.forecast_mw - p.actual_mw),
-  }))
+  const data = errorRows(points)
 
   return (
     <section className="chart">
@@ -27,21 +27,31 @@ export function ErrorChart({ points }: { points: Point[] }) {
       <div role="img" aria-label="Bar chart of forecast minus actual generation by hour">
         <ResponsiveContainer width="100%" height={260}>
           <BarChart data={data} margin={{ top: 8, right: 16, bottom: 8, left: 8 }}>
-            <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-            <XAxis dataKey="hour" />
+            <CartesianGrid {...gridStyle} />
+            <XAxis dataKey="t" tickFormatter={hourLabel} {...axisStyle} />
             <YAxis
               width={80}
               tickFormatter={(value: number) => value.toLocaleString('en-GB')}
-              label={{ value: 'MW', angle: -90, position: 'insideLeft' }}
+              label={{ value: 'MW', angle: -90, position: 'insideLeft', fill: 'var(--muted)' }}
+              {...axisStyle}
             />
-            <Tooltip formatter={formatSignedMw} />
-            <ReferenceLine y={0} stroke="currentColor" />
-            <Bar dataKey="Error" name="Forecast − actual" fill="#7c3aed" />
+            <Tooltip
+              {...tooltipStyle}
+              cursor={{ fill: 'rgb(255 255 255 / 0.05)' }}
+              labelFormatter={(t) => `${hourLabel(String(t))} UTC`}
+              formatter={(value) => [formatSignedMw(value), 'Forecast − actual']}
+            />
+            <ReferenceLine y={0} stroke="var(--muted)" />
+            <Bar dataKey="Error" isAnimationActive={!prefersReducedMotion()}>
+              {data.map((row) => (
+                <Cell key={row.t} fill={row.Error >= 0 ? 'var(--positive)' : 'var(--negative)'} />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       </div>
       <p className="caption">
-        Above zero: forecast higher than actual. Below zero: forecast lower. Hours are UTC.
+        Mint: forecast above actual. Rose: forecast below actual. Hours are UTC.
       </p>
     </section>
   )

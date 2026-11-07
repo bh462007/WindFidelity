@@ -37,6 +37,26 @@ export interface Timeseries {
   points: Point[]
 }
 
+export interface Ready {
+  status: 'ready' | 'warming'
+  cached_days: number
+}
+
+export type ActivityKind = 'ingestion' | 'match' | 'cache' | 'error'
+
+export interface ActivityEvent {
+  id: number
+  timestamp: string
+  kind: ActivityKind
+  message: string
+  details: Record<string, string | number>
+}
+
+export interface Activity {
+  events: ActivityEvent[]
+  capacity: number
+}
+
 export type ErrorKind = 'no_data' | 'unavailable' | 'invalid' | 'unknown'
 
 export class ApiError extends Error {
@@ -81,3 +101,8 @@ export const fetchSummary = (day: string, signal?: AbortSignal) =>
 
 export const fetchTimeseries = (day: string, signal?: AbortSignal) =>
   getJson<Timeseries>(`/api/v1/timeseries?day=${encodeURIComponent(day)}`, signal)
+
+export const fetchReady = (signal?: AbortSignal) => getJson<Ready>('/ready', signal)
+
+export const fetchActivity = (limit = 50, signal?: AbortSignal) =>
+  getJson<Activity>(`/api/v1/activity?limit=${limit}`, signal)

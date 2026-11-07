@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { ApiError, fetchSummary } from './client'
+import { ApiError, fetchActivity, fetchReady, fetchSummary } from './client'
+
 
 function mockFetch(outcome: Response | Error) {
     const fn = vi.fn((..._args: unknown[]) =>        outcome instanceof Response ? Promise.resolve(outcome) : Promise.reject(outcome),
@@ -74,3 +75,18 @@ describe('api client', () => {
     await expect(fetchSummary('2026-01-15')).rejects.toMatchObject({ name: 'AbortError' })
   })
 })
+
+  it('requests the activity feed with a limit', async () => {
+    const fn = mockFetch(json({ events: [], capacity: 100 }, 200))
+
+    await fetchActivity(20)
+
+    expect(fn.mock.calls[0][0]).toBe('/api/v1/activity?limit=20')
+  })
+
+  it('requests the ready endpoint', async () => {
+    const fn = mockFetch(json({ status: 'warming', cached_days: 0 }, 200))
+
+    await expect(fetchReady()).resolves.toEqual({ status: 'warming', cached_days: 0 })
+    expect(fn.mock.calls[0][0]).toBe('/ready')
+  })

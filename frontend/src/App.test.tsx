@@ -34,7 +34,15 @@ const json = (body: unknown, status = 200) =>
   })
 
 function routeFetch(handler: (url: string) => Response) {
-  const fn = vi.fn((url: string, ..._rest: unknown[]) => Promise.resolve(handler(url)))
+  const fn = vi.fn((url: string, ..._rest: unknown[]) => {
+    if (url.includes('/activity')) {
+      return Promise.resolve(json({ events: [], capacity: 100 }))
+    }
+    if (url === '/ready') {
+      return Promise.resolve(json({ status: 'warming', cached_days: 0 }))
+    }
+    return Promise.resolve(handler(url))
+  })
   vi.stubGlobal('fetch', fn)
   return fn
 }
@@ -53,6 +61,7 @@ describe('App', () => {
     expect(screen.getByText('+1,190 MW')).toBeInTheDocument()
     expect(screen.getByTestId('generation-chart')).toBeInTheDocument()
     expect(screen.getByTestId('error-chart')).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: 'System Activity' })).toBeInTheDocument()
   })
 
   it('shows "no data" when the API reports no data', async () => {
