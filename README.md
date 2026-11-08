@@ -126,17 +126,19 @@ npm run lint
 
 ## What the data shows so far
 
-Five January 2026 days were checked. The forecast ran above actual on average on all five:
+Five January 2026 days were scored against two sources of "actual" wind. Bias is forecast minus actual, in MW.
 
-| Day | Hours matched | MAE (MW) | Bias (MW) |
-|---|---|---|---|
-| 5 Jan | 24 | 861 | +219 |
-| 10 Jan | 24 | 1,245 | +856 |
-| 15 Jan | 24 | 1,190 | +1,190 |
-| 20 Jan | 24 | 1,029 | +318 |
-| 25 Jan | 24 | 1,735 | +1,735 |
+| Day | Bias vs FUELHH wind | Bias vs per-type wind total |
+|---|---|---|
+| 5 Jan | +219 | −961 |
+| 10 Jan | +856 | −432 |
+| 15 Jan | +1,190 | −430 |
+| 20 Jan | +318 | −2,684 |
+| 25 Jan | +1,735 | −604 |
 
-The cause is not established. It could be real forecast bias, or WINDFOR and FUELHH WIND may not measure exactly the same wind. Five days cannot separate the two.
+Against FUELHH the forecast ran above actual on every day. Against the per-type total (onshore plus offshore) it ran below actual on every day. The per-type total was roughly 1,200 to 3,000 MW higher than FUELHH on these days, so the choice of "actual" changes the sign of the bias as well as its size.
+
+What this does show: the bias reported by the dashboard is relative to FUELHH wind and should not be read as proof that the forecast is biased. What it does not show: which measure WINDFOR is meant to forecast. Elexon defines WINDFOR as "a forecast of generation for all Power Park Modules" and does not say whether embedded wind is included.
 
 ## Known limitations
 
