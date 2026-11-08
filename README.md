@@ -2,6 +2,9 @@
 
 [![CI](https://github.com/bh462007/WindFidelity/actions/workflows/ci.yml/badge.svg)](https://github.com/bh462007/WindFidelity/actions/workflows/ci.yml)
 
+![Dashboard](docs/dashboard.png)
+*Dashboard for 15 January 2026.*
+
 WindFidelity measures how accurate Elexon's day-ahead wind generation forecasts are for Great Britain. For any delivery day it compares what was forecast with what the grid actually produced, and reports the error in megawatts.
 
 The central design rule is that a forecast is only scored using information that existed before the cutoff. That keeps the comparison honest.
