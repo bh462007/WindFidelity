@@ -113,3 +113,14 @@ class ElexonClient:
                 "format": "json",
             },
         )
+
+    def fetch_windfor_stream(self, publish_from: str, publish_to: str) -> list[dict]:
+        """All WINDFOR forecasts published in a window, in one request."""
+        return self.fetch_json(
+            "/datasets/WINDFOR/stream",
+            {
+                "publishDateTimeFrom": publish_from,
+                "publishDateTimeTo": publish_to,
+                "format": "json",
+            },
+        )

@@ -87,8 +87,6 @@ def _validate_windfor_record(record: dict) -> tuple[bool, str | None]:
     required = {
         "publishTime": str,
         "startTime": str,
-        "settlementDate": str,
-        "settlementPeriod": int,
         "generation": (int, float),
     }
 
@@ -101,15 +99,6 @@ def _validate_windfor_record(record: dict) -> tuple[bool, str | None]:
         if field in {"publishTime", "startTime"}:
             if _parse_utc_timestamp(value) is None:
                 return False, f"invalid UTC timestamp for {field}"
-
-        if field == "settlementDate" and _parse_date(value) is None:
-            return False, "invalid settlementDate"
-
-        if field == "settlementPeriod":
-            if isinstance(value, bool) or not isinstance(value, int):
-                return False, "settlementPeriod must be an integer"
-            if value < 1 or value > 48:
-                return False, "settlementPeriod out of range"
 
         if field == "generation":
             if not _is_number(value):
