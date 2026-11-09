@@ -28,7 +28,7 @@ def test_selects_latest_eligible_forecast():
         },
     ]
 
-    result = select_forecast_vintages(forecasts)
+    result = select_forecast_vintages(forecasts, cutoff=time(12, 0))
 
     assert len(result) == 1
     assert result[0]["publishTime"] == "2026-10-25T11:00:00Z"
@@ -69,7 +69,7 @@ def test_forecast_published_exactly_at_cutoff_is_selected():
         _forecast("2026-10-25T12:00:01Z", 300),
     ]
 
-    result = select_forecast_vintages(forecasts)
+    result = select_forecast_vintages(forecasts, cutoff=time(12, 0))
 
     assert len(result) == 1
     assert result[0]["generation"] == 200
@@ -92,7 +92,7 @@ def test_matches_forecast_to_actual_with_datetime_start_time():
         "generation_mw": 100.0,
     }]
 
-    assert match_forecasts_to_actuals(forecasts, actuals) == [{
+    assert match_forecasts_to_actuals(forecasts, actuals, cutoff=time(12, 0)) == [{
         "startTime": "2026-10-26T12:00:00Z",
         "publishTime": "2026-10-25T11:00:00Z",
         "forecast_mw": 120.0,
@@ -126,3 +126,21 @@ def test_matching_uses_the_cutoff_it_is_given():
     matched = match_forecasts_to_actuals(forecasts, actuals, cutoff=time(9, 50))
 
     assert matched[0]["forecast_mw"] == 100.0
+
+
+def test_default_cutoff_is_day_ahead_gate_closure():
+    from app.config import FORECAST_CUTOFF_UTC
+
+    assert FORECAST_CUTOFF_UTC == time(9, 50)
+
+
+def test_default_cutoff_boundary_is_inclusive():
+    forecasts = [
+        _forecast("2026-10-25T09:50:00Z", 100),
+        _forecast("2026-10-25T09:50:01Z", 200),
+    ]
+
+    result = select_forecast_vintages(forecasts)
+
+    assert len(result) == 1
+    assert result[0]["generation"] == 100
