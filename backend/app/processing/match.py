@@ -1,5 +1,5 @@
 
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, time, timedelta, timezone
 
 from app.config import FORECAST_CUTOFF_UTC
 
@@ -16,18 +16,21 @@ def parse_timestamp(value: str | datetime) -> datetime:
     return parsed.astimezone(timezone.utc)
 
 
-def get_forecast_cutoff(delivery: datetime) -> datetime:
+def get_forecast_cutoff(delivery: datetime, cutoff: time = FORECAST_CUTOFF_UTC) -> datetime:
     previous_day = delivery.date() - timedelta(days=1)
 
     return datetime.combine(
         previous_day,
-        FORECAST_CUTOFF_UTC,
+        cutoff,
         tzinfo=timezone.utc,
     )
 
 
-def select_forecast_vintages(forecasts: list[dict]) -> list[dict]:
-    """Select the latest forecast published by noon UTC the previous day."""
+def select_forecast_vintages(
+    forecasts: list[dict],
+    cutoff: time = FORECAST_CUTOFF_UTC,
+) -> list[dict]:
+    """Select the latest forecast published at or before the cutoff on the previous day."""
 
     latest_by_delivery = {}
 
@@ -40,17 +43,14 @@ def select_forecast_vintages(forecasts: list[dict]) -> list[dict]:
 
         published = parse_timestamp(published_value)
         delivery = parse_timestamp(delivery_value)
-        cutoff = get_forecast_cutoff(delivery)
 
-        if published > cutoff:
+        if published > get_forecast_cutoff(delivery, cutoff):
             continue
 
         key = delivery.isoformat()
         current = latest_by_delivery.get(key)
 
-        if current is None or published > parse_timestamp(
-            current["publishTime"]
-        ):
+        if current is None or published > parse_timestamp(current["publishTime"]):
             latest_by_delivery[key] = forecast
 
     return [
@@ -62,8 +62,9 @@ def select_forecast_vintages(forecasts: list[dict]) -> list[dict]:
 def match_forecasts_to_actuals(
     forecasts: list[dict],
     actuals: list[dict],
+    cutoff: time = FORECAST_CUTOFF_UTC,
 ) -> list[dict]:
-    selected = select_forecast_vintages(forecasts)
+    selected = select_forecast_vintages(forecasts, cutoff)
 
     actual_by_time = {
         parse_timestamp(row["startTime"]): float(

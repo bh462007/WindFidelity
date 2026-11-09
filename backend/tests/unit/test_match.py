@@ -1,5 +1,5 @@
 
-from datetime import datetime, timezone
+from datetime import datetime, time, timezone
 
 from app.processing.match import match_forecasts_to_actuals, select_forecast_vintages
 
@@ -98,3 +98,31 @@ def test_matches_forecast_to_actual_with_datetime_start_time():
         "forecast_mw": 120.0,
         "actual_mw": 100.0,
     }]
+
+
+def test_cutoff_is_a_parameter_not_a_hidden_global():
+    forecasts = [
+        _forecast("2026-10-25T09:30:00Z", 100),
+        _forecast("2026-10-25T11:30:00Z", 200),
+    ]
+
+    early = select_forecast_vintages(forecasts, cutoff=time(9, 50))
+    late = select_forecast_vintages(forecasts, cutoff=time(12, 0))
+
+    assert early[0]["generation"] == 100
+    assert late[0]["generation"] == 200
+
+
+def test_matching_uses_the_cutoff_it_is_given():
+    forecasts = [
+        _forecast("2026-10-25T09:30:00Z", 100),
+        _forecast("2026-10-25T11:30:00Z", 200),
+    ]
+    actuals = [{
+        "startTime": datetime(2026, 10, 26, 12, tzinfo=timezone.utc),
+        "generation_mw": 90.0,
+    }]
+
+    matched = match_forecasts_to_actuals(forecasts, actuals, cutoff=time(9, 50))
+
+    assert matched[0]["forecast_mw"] == 100.0
