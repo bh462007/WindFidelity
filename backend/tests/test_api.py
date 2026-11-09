@@ -15,7 +15,7 @@ def test_health_endpoint():
     assert response.json() == {"status": "healthy"}
 
 
-def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch):
+def test_analyse_day_makes_one_windfor_stream_call_for_the_decision_window(monkeypatch):
     captured = []
     forecast_validations = []
 
@@ -29,20 +29,21 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
         "generation": 100.0,
     }]
 
+    windfor_rows = [{
+        "dataset": "WINDFOR",
+        "publishTime": "2026-10-25T09:30:00Z",
+        "startTime": "2026-10-26T00:00:00Z",
+        "generation": 90.0,
+    }]
+
     def fake_fetch_json(endpoint, params):
         captured.append((endpoint, params))
 
         if endpoint == "/datasets/FUELHH/stream":
             return fuelhh_rows
 
-        if endpoint == "/forecast/generation/wind/evolution":
-            return [{
-                "publishTime": "2026-10-25T10:00:00Z",
-                "startTime": params["startTime"],
-                "settlementDate": "2026-10-26",
-                "settlementPeriod": 1,
-                "generation": 90.0,
-            }]
+        if endpoint == "/datasets/WINDFOR/stream":
+            return windfor_rows
 
         raise AssertionError(f"Unexpected endpoint: {endpoint}")
 
@@ -54,15 +55,9 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
             "rejected_count": 0,
         }
 
+    monkeypatch.setattr(analysis_service.client, "fetch_json", fake_fetch_json)
     monkeypatch.setattr(
-        analysis_service.client,
-        "fetch_json",
-        fake_fetch_json,
-    )
-    monkeypatch.setattr(
-        analysis_service,
-        "validate_windfor_records",
-        fake_validate_windfor_records,
+        analysis_service, "validate_windfor_records", fake_validate_windfor_records
     )
     monkeypatch.setattr(
         analysis_service,
@@ -95,45 +90,26 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
 
     result = analysis_service.analyse_day(date(2026, 10, 26))
 
-    assert len(forecast_validations) == 24
-    assert all(len(group) == 1 for group in forecast_validations)
-
-    assert all(
-        group[0]["publishTime"] == "2026-10-25T10:00:00Z"
-        and group[0]["settlementDate"] == "2026-10-26"
-        and group[0]["settlementPeriod"] == 1
-        and group[0]["generation"] == 90.0
-        for group in forecast_validations
-    )
-
-    assert captured[0] == (
-        "/datasets/FUELHH/stream",
-        {
-            "settlementDateFrom": "2026-10-26",
-            "settlementDateTo": "2026-10-26",
-            "format": "json",
-        },
-    )
-
-    forecast_calls = [
-        params
-        for endpoint, params in captured
-        if endpoint == "/forecast/generation/wind/evolution"
+    assert captured == [
+        (
+            "/datasets/FUELHH/stream",
+            {
+                "settlementDateFrom": "2026-10-26",
+                "settlementDateTo": "2026-10-26",
+                "format": "json",
+            },
+        ),
+        (
+            "/datasets/WINDFOR/stream",
+            {
+                "publishDateTimeFrom": "2026-10-23T00:00:00Z",
+                "publishDateTimeTo": "2026-10-25T09:50:00Z",
+                "format": "json",
+            },
+        ),
     ]
+    assert forecast_validations == [windfor_rows]
 
-    assert len(forecast_calls) == 24
-    assert all(call["format"] == "json" for call in forecast_calls)
-    assert all("startTime" in call for call in forecast_calls)
-
-    expected_hours = [
-        f"2026-10-26T{hour:02d}:00:00Z"
-        for hour in range(24)
-    ]
-
-    actual_hours = [call["startTime"] for call in forecast_calls]
-
-    assert sorted(actual_hours) == expected_hours
-    assert len(set(actual_hours)) == 24
     assert result["date"] == "2026-10-26"
     assert result["coverage"] == {
         "expected_hours": 24,
@@ -147,7 +123,7 @@ def test_analyse_day_uses_elexon_client_and_retains_forecast_params(monkeypatch)
     assert events[1]["details"] == {
         "source": "WINDFOR",
         "day": "2026-10-26",
-        "rows": 24,
+        "rows": 1,
         "rejected": 0,
     }
     assert events[2]["details"] == {

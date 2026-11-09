@@ -1,5 +1,4 @@
 
-from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
 
 from app.config import FORECAST_CUTOFF_UTC
@@ -8,7 +7,7 @@ from app.ingestion.schemas import (
     validate_windfor_records,
 )
 from app.processing.clean import aggregate_hourly_actuals
-from app.processing.match import match_forecasts_to_actuals
+from app.processing.match import get_forecast_cutoff, match_forecasts_to_actuals
 from app.processing.metrics import calculate_metrics
 from app.services.activity import activity_log
 
@@ -34,27 +33,20 @@ def analyse_day(day: date) -> dict:
         for hour in range(24)
     ]
 
-    def fetch_evolution(delivery):
-        raw_group = client.fetch_json(
-            "/forecast/generation/wind/evolution",
-            {
-                "startTime": delivery.strftime("%Y-%m-%dT%H:%M:%SZ"),
-                "format": "json",
-            },
-        )
-        return validate_windfor_records(raw_group)
+    publish_from = start - timedelta(days=3)
+    publish_to = get_forecast_cutoff(start)
 
-    with ThreadPoolExecutor(max_workers=6) as executor:
-        validations = list(
-            executor.map(fetch_evolution, delivery_times)
-        )
-
-    forecasts = [
-        record
-        for validation in validations
-        for record in validation["valid_records"]
-    ]
-    rejected = sum(validation["rejected_count"] for validation in validations)
+    # One request for every forecast that could be in force for this delivery day.
+    # A publication covers about 73 hours ahead, so nothing older than 3 days can
+    # reach it. Nothing published after the cutoff is downloaded at all.
+    raw_forecasts = client.fetch_windfor_stream(
+        publish_from.strftime("%Y-%m-%dT%H:%M:%SZ"),
+        publish_to.strftime("%Y-%m-%dT%H:%M:%SZ"),
+    )
+    validation = validate_windfor_records(raw_forecasts)
+    forecasts = validation["valid_records"]
+    rejected = validation["rejected_count"]
+    
     activity_log.record(
         "ingestion",
         f"WINDFOR {day.isoformat()}: {len(forecasts)} forecast rows loaded, "
