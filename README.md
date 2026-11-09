@@ -22,9 +22,9 @@ The dashboard shows these as a summary strip, a forecast-vs-actual line chart, a
 
 ## The cutoff rule
 
-For each delivery hour, the forecast used is the **latest one published at or before 12:00 UTC on the previous calendar day**. A forecast published exactly at the cutoff is kept; one published a second later is rejected. If no forecast qualifies, that hour is unmatched and shows up in the coverage figure.
+For each delivery hour, the forecast used is the **latest one published at or before 09:50 UTC on the previous calendar day**. A forecast published exactly at the cutoff is kept; one published a second later is rejected. If no forecast qualifies, that hour is unmatched and shows up in the coverage figure.
 
-The cutoff time is configurable through the `FORECAST_CUTOFF_UTC` environment variable and defaults to `12:00`. The boundary cases (later rejected, earlier selected, exactly at cutoff selected, no candidate) are covered by unit tests.
+The cutoff time is configurable through the `FORECAST_CUTOFF_UTC` environment variable and defaults to `09:50`. The boundary cases (later rejected, earlier selected, exactly at cutoff selected, no candidate) are covered by unit tests.
 
 ## Data sources
 
