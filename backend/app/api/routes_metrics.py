@@ -3,7 +3,14 @@ from typing import Annotated
 
 import requests
 from app.errors import ApiError
-from app.models.responses import ErrorResponse, PeriodResponse, SummaryResponse, TimeseriesResponse
+from app.models.responses import (
+    ErrorResponse,
+    PeriodResponse,
+    SnapshotResponse,
+    SummaryResponse,
+    TimeseriesResponse,
+)
+from app.services import snapshot as snapshot_service
 from app.services.activity import activity_log
 from app.services.analysis_service import analyse_day, analyse_period
 from app.services.cache import TTLCache
@@ -100,3 +107,11 @@ def get_period(start: StartParam, end: EndParam):
     label = f"{start.isoformat()}..{end.isoformat()}"
     result = _cached(("period", start, end), label, lambda: analyse_period(start, end))
     return {**result, "points": result["matched_records"]}
+
+
+@router.get("/snapshot", response_model=SnapshotResponse, responses=ERROR_RESPONSES)
+def get_snapshot():
+    try:
+        return snapshot_service.load_snapshot()
+    except snapshot_service.SnapshotUnavailable as exc:
+        raise ApiError(503, "snapshot_unavailable", "Snapshot is not available") from exc

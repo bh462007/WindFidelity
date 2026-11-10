@@ -69,6 +69,10 @@ class PeriodResponse(BaseModel):
     points: list[MatchedPoint]
 
 
+class SnapshotResponse(PeriodResponse):
+    generated_at: str
+
+
 class SummaryResponse(BaseModel):
     date: str
     timezone: str
