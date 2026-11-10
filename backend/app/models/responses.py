@@ -37,6 +37,38 @@ class MatchedPoint(BaseModel):
     actual_mw: float
 
 
+class Period(BaseModel):
+    start: str
+    end: str
+
+
+class ErrorPercentiles(BaseModel):
+    p50: float
+    p90: float
+    p95: float
+    max: float
+
+
+class DailyMetrics(Metrics):
+    date: str
+
+
+class HourlyMetrics(Metrics):
+    hour: int
+
+
+class PeriodResponse(BaseModel):
+    period: Period
+    timezone: str
+    forecast_cutoff: ForecastCutoff
+    coverage: Coverage
+    metrics: Metrics
+    error_percentiles: ErrorPercentiles
+    daily: list[DailyMetrics]
+    hourly: list[HourlyMetrics]
+    points: list[MatchedPoint]
+
+
 class SummaryResponse(BaseModel):
     date: str
     timezone: str
