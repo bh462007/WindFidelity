@@ -37,6 +37,34 @@ export interface Timeseries {
   points: Point[]
 }
 
+export interface ErrorPercentiles {
+  p50: number
+  p90: number
+  p95: number
+  max: number
+}
+
+export interface DailyMetrics extends Metrics {
+  date: string
+}
+
+export interface HourlyMetrics extends Metrics {
+  hour: number
+}
+
+export interface Snapshot {
+  period: { start: string; end: string }
+  timezone: string
+  forecast_cutoff: ForecastCutoff
+  coverage: Coverage
+  metrics: Metrics
+  error_percentiles: ErrorPercentiles
+  daily: DailyMetrics[]
+  hourly: HourlyMetrics[]
+  points: Point[]
+  generated_at: string
+}
+
 export interface Ready {
   status: 'ready' | 'warming'
   cached_days: number
@@ -106,3 +134,6 @@ export const fetchReady = (signal?: AbortSignal) => getJson<Ready>('/ready', sig
 
 export const fetchActivity = (limit = 50, signal?: AbortSignal) =>
   getJson<Activity>(`/api/v1/activity?limit=${limit}`, signal)
+
+export const fetchSnapshot = (signal?: AbortSignal) =>
+  getJson<Snapshot>('/api/v1/snapshot', signal)
