@@ -3,47 +3,62 @@
 [![CI](https://github.com/bh462007/WindFidelity/actions/workflows/ci.yml/badge.svg)](https://github.com/bh462007/WindFidelity/actions/workflows/ci.yml)
 
 ![Dashboard](docs/dashboard.png)
-*Dashboard for 15 January 2026.*
+*January 2026 overview.*
 
-WindFidelity measures how accurate Elexon's day-ahead wind generation forecasts are for Great Britain. For any delivery day it compares what was forecast with what the grid actually produced, and reports the error in megawatts.
+WindFidelity answers one question for a wind-power buyer in Great Britain: **were the day-ahead wind forecasts accurate enough to buy on?** For purchase decisions made in January 2026 it shows the forecast that was available at decision time next to what the grid actually produced, and measures the error in megawatts.
 
-The central design rule is that a forecast is only scored using information that existed before the cutoff. That keeps the comparison honest.
+**Deployed app:** _add the link here after deploying_
 
-## What it reports
+## What it shows
 
-For a chosen UTC day, hour by hour:
+- **January overview:** month-wide MAE, RMSE and bias, a daily error chart, error by hour of day, and the error spread (median, 90th and 95th percentile, worst hour).
+- **Single day:** forecast against actual for one delivery day, with the exact forecast publication that was in force at decision time.
 
-- **MAE**: average size of the miss.
-- **RMSE**: like MAE, but large misses count more.
-- **Bias**: average of forecast minus actual. Positive means the forecast ran above actual.
-- **Coverage**: how many of the 24 hours had both a usable forecast and an actual.
+Results for 744 delivery hours (2 Jan to 1 Feb 2026), all matched:
 
-The dashboard shows these as a summary strip, a forecast-vs-actual line chart, an hourly error chart, and a System Activity panel that lists real pipeline events (rows ingested, hours matched, cache hits and misses, failures).
+| Metric | Value |
+|---|---|
+| MAE | 2,013 MW |
+| RMSE | 2,506 MW |
+| Bias (forecast − actual) | +1,730 MW |
+| Median absolute error | 1,606 MW |
+| 90th percentile | 4,146 MW |
+| 95th percentile | 5,325 MW |
+| Worst hour | 6,833 MW |
 
-## The cutoff rule
+The typical hour missed by about 1.6 GW, but one hour in ten missed by more than 4.1 GW, and the forecast ran above actual on average. A buyer should size risk on the tail, not the average. These figures cover one month and one definition of "actual" (see Assumptions), so they describe January 2026, not forecast quality in general.
 
-For each delivery hour, the forecast used is the **latest one published at or before 09:50 UTC on the previous calendar day**. A forecast published exactly at the cutoff is kept; one published a second later is rejected. If no forecast qualifies, that hour is unmatched and shows up in the coverage figure.
+## Assumptions
 
-The cutoff time is configurable through the `FORECAST_CUTOFF_UTC` environment variable and defaults to `09:50`. The boundary cases (later rejected, earlier selected, exactly at cutoff selected, no candidate) are covered by unit tests.
+- **Decision time.** Purchase decisions are made the day before delivery, at **09:50 UTC**, my assumption of the GB day-ahead market gate closure (Nord Pool, 09:50 GMT). In January UK time equals UTC, so there is no daylight-saving handling. The brief does not name an auction, so the cutoff is configurable (`FORECAST_CUTOFF_UTC`).
+- **"January".** Decisions made in January mean delivery days **2 Jan to 1 Feb 2026** (744 hours).
+- **The cutoff rule.** For each delivery hour the forecast used is the latest one published **at or before** the cutoff on the previous calendar day. One published exactly at the cutoff is kept; one a second later is rejected. If none qualifies, the hour is unmatched and reported in coverage. The boundary cases are unit tested.
+- **Why it matters.** With a 12:00 UTC cutoff, forecasts published after the market closed leak in and make the error look about 6% smaller (MAE 1,901 MW against 2,013 MW).
+- **Actuals.** Elexon FUELHH, fuel type `WIND`, half-hourly values averaged to hourly. Only hours with both half-hours present are scored.
+- **Forecasts.** Elexon WINDFOR. Duplicate timestamps keep the last value and log a warning if the values conflict.
+- **Bias sign depends on the definition of "actual".** The reported bias is relative to FUELHH wind. It shows how the forecast compares with that series, not that the forecast is biased, because the WINDFOR documentation does not say whether embedded wind is included.
+- **Only the two datasets named in the brief are used.**
 
-## Data sources
+## Data and the snapshot
 
-Both come from the Elexon BMRS API. All timestamps are ISO 8601 in UTC.
+The deployed app serves a **snapshot** of January 2026 (`backend/data/january_2026.json`) produced by the same pipeline as the live API. This keeps the demo fast and independent of Elexon being reachable. The dashboard states when the snapshot was generated. To rebuild it from live data:
 
-| Data | Endpoint | Used for |
-|---|---|---|
-| FUELHH | `/datasets/FUELHH/stream` | Actual generation. Half-hourly `WIND` rows, averaged to hourly. |
-| WINDFOR | `/forecast/generation/wind/evolution` | Forecast history. Each delivery hour has many publications (584 rows for 15 Jan 2026). |
+```powershell
+python scripts/build_snapshot.py
+```
+
+The live pipeline needs two Elexon calls for any period: one FUELHH request and one WINDFOR request (`/datasets/WINDFOR/stream` with a publish-time window).
 
 ## API
 
 | Endpoint | Returns |
 |---|---|
-| `GET /api/v1/summary?day=YYYY-MM-DD` | Metrics, coverage and the cutoff policy |
-| `GET /api/v1/timeseries?day=YYYY-MM-DD` | Per-hour forecast, actual and publish time |
+| `GET /api/v1/snapshot` | The stored January 2026 analysis |
+| `GET /api/v1/period?start=&end=` | Live analysis for a date range (max 62 days): metrics, daily, hourly, percentiles, points |
+| `GET /api/v1/summary?day=` | Live metrics for one day |
+| `GET /api/v1/timeseries?day=` | Live per-hour forecast, actual and publish time |
 | `GET /api/v1/activity?limit=50` | Recent pipeline events, newest first |
-| `GET /health` | Liveness |
-| `GET /ready` | `warming` until a day has been cached, then `ready` |
+| `GET /health`, `GET /ready` | Liveness; `warming` until a day or period has been cached |
 
 Every response has a typed Pydantic model. Errors use one envelope:
 
@@ -54,46 +69,63 @@ Every response has a typed Pydantic model. Errors use one envelope:
 | Status | Code | Meaning |
 |---|---|---|
 | 503 | `upstream_unavailable` | Elexon could not be reached |
-| 422 | `no_data` | No matching forecasts and actuals for that day |
-| 422 | `invalid_request` | Malformed parameter |
+| 503 | `snapshot_unavailable` | The stored snapshot is missing or unreadable |
+| 422 | `no_data` | No matching forecasts and actuals |
+| 422 | `invalid_request` | Malformed or out-of-range parameter |
 
-Results are cached in memory for 5 minutes per day.
+Live results are cached in memory for 5 minutes. The System Activity panel lists real pipeline events from the backend (rows ingested, hours matched, cache hits and misses, failures). It polls rather than streams, so it is not labelled "live".
 
-## Project layout
+## Files and directories
 
 ```
 backend/
   app/
-    api/          routes: metrics, activity, health
-    ingestion/    Elexon client (retries, timeout) and record validation
-    processing/   clean, match (the cutoff rule) and metrics
-    services/     pipeline, TTL cache, activity ring buffer
-    models/       Pydantic response models
-  tests/          unit and integration tests
+    api/            routes: metrics (summary, timeseries, period, snapshot), activity, health
+    ingestion/      Elexon client (retries, timeout) and record validation
+    processing/     clean, match (the cutoff rule), metrics, breakdown (daily, hourly, percentiles)
+    services/       analysis pipeline, snapshot, TTL cache, activity ring buffer
+    models/         Pydantic response models
+    frontend.py     serves the built frontend when present
+    config.py       cutoff and paths from environment variables
+  data/             january_2026.json (the snapshot)
+  tests/            unit and integration tests
 frontend/
   src/
-    api/          typed client
-    components/   summary, charts, states, System Activity
-    hooks/        data loading
-    lib/          downsampling and chart data
-scripts/          fetch_sample.py captures raw Elexon responses as sample data
+    api/            typed client
+    components/     overview, day view, charts, error spread, states, System Activity
+    hooks/          snapshot and activity loading
+    lib/            downsampling, chart data, decision-time helpers
+scripts/            build_snapshot.py, fetch_sample.py
+Dockerfile          builds the frontend, serves everything from one image
+index.py            Vercel entrypoint
+vercel.json         Vercel configuration
+.github/workflows/  CI: lint, tests, build, and a Docker smoke test
 ```
 
 ## Running it
 
-You need Python 3.11 or newer and Node 20 or newer.
+### Docker
 
-Backend, from the repository root:
+```powershell
+docker build -t windfidelity .
+docker run -p 8000:8000 windfidelity
+```
+
+Open http://localhost:8000.
+
+### Local development
+
+You need Python 3.11 or newer and Node 20 or newer.
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 cd backend
-uvicorn app.main:app --port 8000
+python -m uvicorn app.main:app --port 8000
 ```
 
-Frontend, in a second terminal:
+In a second terminal:
 
 ```powershell
 cd frontend
@@ -101,53 +133,40 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:5173. The dev server proxies `/api` and `/ready` to the backend on port 8000.
+Open http://localhost:5173. The dev server proxies `/api` and `/ready` to the backend.
 
-To change the cutoff, set the variable before starting the backend:
+### Configuration
 
-```powershell
-$env:FORECAST_CUTOFF_UTC = "10:00"
-```
+| Variable | Default | Meaning |
+|---|---|---|
+| `FORECAST_CUTOFF_UTC` | `09:50` | Decision time on the day before delivery |
+| `FRONTEND_DIST` | `frontend/dist` | Built frontend to serve, if present |
+| `PORT` | `8000` | Port inside the Docker image |
 
 ## Tests and checks
 
 ```powershell
-pytest -q                 # backend, from the repository root
-ruff check backend
+python -m pytest -q          # backend, from the repository root
+python -m ruff check backend
 
 cd frontend
 npm test
-npm run build             # also type-checks
+npm run build                # also type-checks
 npm run lint
 ```
 
+CI runs all of these on every push, then builds the Docker image and checks the running container (`/health`, `/api/v1/snapshot`, and the frontend page).
+
 ## Design decisions
 
-- **Actuals come from FUELHH, not the per-type wind-and-solar endpoint.** The per-type endpoint reports onshore and offshore as separate rows at the same timestamp. A keep-last dedupe silently dropped onshore, understating actual generation by thousands of MW and inflating the apparent forecast error. This was caught by comparing the pipeline's output with the raw data.
-- **Duplicate timestamps keep the last value and log a warning when values conflict.**
-- **Only complete hours are scored.** An hour needs both its :00 and :30 readings.
-- **Activity is recorded where things happen**, not simulated, and the panel is labelled System Activity because it polls rather than streams.
-- **Chart rendering is capped at 500 points** using largest-triangle downsampling, which returns original points only and keeps peaks.
+- **The cutoff is a function parameter**, not a hidden global, so it can be tested, shown in the UI and compared.
+- **One WINDFOR request per analysis**, limited to the publish window that can matter, so nothing published after the cutoff is even downloaded.
+- **Percentiles use the nearest-rank method**, so every reported percentile is an error that actually occurred.
+- **Actuals come from FUELHH.** An earlier version used a per-type endpoint where a keep-last dedupe silently dropped onshore wind and inflated the error; it was caught by comparing the pipeline with the raw data.
+- **Chart rendering is capped at 500 points** using largest-triangle downsampling, which keeps peaks.
 
-## What the data shows so far
+## Limitations
 
-Five January 2026 days were scored against two sources of "actual" wind. Bias is forecast minus actual, in MW.
-
-| Day | Bias vs FUELHH wind | Bias vs per-type wind total |
-|---|---|---|
-| 5 Jan | +219 | −961 |
-| 10 Jan | +856 | −432 |
-| 15 Jan | +1,190 | −430 |
-| 20 Jan | +318 | −2,684 |
-| 25 Jan | +1,735 | −604 |
-
-Against FUELHH the forecast ran above actual on every day. Against the per-type total (onshore plus offshore) it ran below actual on every day. The per-type total was roughly 1,200 to 3,000 MW higher than FUELHH on these days, so the choice of "actual" changes the sign of the bias as well as its size.
-
-What this does show: the bias reported by the dashboard is relative to FUELHH wind and should not be read as proof that the forecast is biased. What it does not show: which measure WINDFOR is meant to forecast. Elexon defines WINDFOR as "a forecast of generation for all Power Park Modules" and does not say whether embedded wind is included.
-
-## Known limitations
-
-- The API analyses one day at a time. There is no multi-day range yet, so the downsampler is built and tested but not exercised by a normal day.
-- The activity log and cache live in the backend process and reset when it restarts.
-- There is no deployment configuration. The Vite proxy only exists in development, so a hosted version needs a reverse proxy or CORS settings.
-- The default date in the dashboard is fixed rather than "latest available day".
+- One month, one cutoff assumption, one definition of "actual".
+- The activity log and cache live in the backend process and reset on restart.
+- The snapshot is static. Refresh it with `scripts/build_snapshot.py`.
