@@ -1,5 +1,6 @@
 import type { Summary } from '../api/client'
 
+type CardsData = Pick<Summary, 'metrics' | 'coverage' | 'forecast_cutoff' | 'timezone'>
 const formatMw = (value: number) => `${Math.round(value).toLocaleString('en-GB')} MW`
 
 function formatSignedMw(value: number) {
@@ -38,7 +39,7 @@ function Card({ label, value, hint, valueTone, hintTone }: CardProps) {
   )
 }
 
-export function SummaryCards({ summary }: { summary: Summary }) {
+export function SummaryCards({ summary }: { summary: CardsData }) {
   const { metrics, coverage, forecast_cutoff, timezone } = summary
   const coveragePct =
     coverage.expected_hours > 0
