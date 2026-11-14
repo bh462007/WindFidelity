@@ -1,7 +1,9 @@
 from app.api.routes_activity import router as activity_router
 from app.api.routes_health import router as health_router
 from app.api.routes_metrics import router as metrics_router
+from app.config import FRONTEND_DIST
 from app.errors import ApiError
+from app.frontend import mount_frontend
 from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
@@ -36,3 +38,4 @@ async def handle_validation_error(request, exc: RequestValidationError):
 app.include_router(metrics_router)
 app.include_router(health_router)
 app.include_router(activity_router)
+mount_frontend(app, FRONTEND_DIST)
