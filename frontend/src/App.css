@@ -321,3 +321,26 @@
   font-family: var(--font-numeric);
   font-size: 0.8125rem;
 }
+
+.spread {
+  margin: 0;
+}
+
+.spread > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.spread dt {
+  display: grid;
+  gap: 2px;
+}
+
+.spread dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
